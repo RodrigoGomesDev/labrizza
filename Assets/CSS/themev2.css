@@ -13,6 +13,28 @@
   width: 100%;
   max-width: calc(100% - 239px);
 }
+.custom-container {
+  background-color: #000;
+}
+
+.custom-container .container .custom-title {
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Philosopher';
+  text-transform: uppercase;
+  letter-spacing: 5.1px;
+  padding-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+@media (max-width: 992px) {
+  .custom-container .container .custom-title {
+    font-size: 18px;
+    margin-left: 0;
+    text-align: center;
+  }
+}
 
 .header-logo-menu {
   display: flex;
@@ -945,14 +967,31 @@
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
   align-items: stretch;
 }
 .banner-grid .banner-grid-item  {
   /* width: calc(50% - 10px); */
-  min-height: 412px !important;
+  display: flex;
+  align-items: center;
+  min-height: 412px;
+  max-width: 412px;
+  padding: 6px;
   flex: 0 0 auto;
+}
+
+@media (max-width: 992px) {
+  .banner-grid {
+    flex-direction: row;
+    max-width: 100%;
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+  .banner-grid .banner-grid-item {
+    max-height: 260px;
+    max-width: 260px;
+  }
 }
 
 /* BANNER WOMEN */

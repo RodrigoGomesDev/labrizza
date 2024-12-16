@@ -16,7 +16,9 @@
   end 
 ~}}
 {{~ if banners && banners.size > 0 ~}}
-<div class="container">
+<div class="custom-container">
+  <div class="container">
+    <h2 class=" custom-title">Conheça nossas linhas</h2>
   <div class="banner-grid">
     {{~ for banner_name in banners_names ~}}
       {{ banner_by_name = banners_by_name | group.get banner_name | array.sort "width" }}
@@ -59,5 +61,6 @@
       {{ end }}
     {{~ end ~}}
   </div>
+</div>
 </div>
 {{~ end ~}}
