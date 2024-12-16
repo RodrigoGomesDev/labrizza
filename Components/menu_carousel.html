@@ -1,0 +1,36 @@
+{{~ menu_group = menu_groups | group.by @(do; ret $0.position;end) | group.get position | array.first ~}}
+{{~ menus = menu_group?.menus | group.by @(do; ret $0.parent_menu_id;end) ~}}
+{{~ if menu_group ~}}
+    {{~ menu_level = menus | group.get null ~}}
+{{~ end ~}}
+{{~ if menu_level ~}}
+    {{~ menu_level = menu_level | array.sort "order" ~}}
+    <div class="menu-carousel menu-carousel-no-slide">
+        <div class="container swiper-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    {{~ for menu_item in menu_level ~}}
+                        <div class="swiper-slide">
+                            <a href="{{-menu_item.link-}}" title="{{-menu_item.name-}}">
+                                {{~ if menu_item.image_url != '' ~}}
+                                    <img src="https://{{ store.store_name }}.fbitsstatic.net/img/m/{{-menu_item.image_url-}}?v={{store.last_modified}}" alt="{{-menu_item.name-}}">
+                                {{~ end ~}}
+                                <span>{{-menu_item.name-}}</span>
+                            </a>
+                        </div>
+                    {{~ end ~}}
+                </div>
+            </div>
+            <div class="swiper-button prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.125" height="22.666" viewBox="0 0 12.125 22.666">
+                    <path d="M21.109.265a.917.917,0,0,1,1.29,0,.9.9,0,0,1,0,1.277L11.978,11.86a.917.917,0,0,1-1.29,0L.267,1.542a.9.9,0,0,1,0-1.277.917.917,0,0,1,1.29,0l9.776,9.41L21.108.265Z" transform="translate(12.125) rotate(90)" fill="#151414"/>
+                </svg>
+            </div>
+            <div class="swiper-button next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.125" height="22.666" viewBox="0 0 12.125 22.666">
+                    <path d="M21.109.265a.917.917,0,0,1,1.29,0,.9.9,0,0,1,0,1.277L11.978,11.86a.917.917,0,0,1-1.29,0L.267,1.542a.9.9,0,0,1,0-1.277.917.917,0,0,1,1.29,0l9.776,9.41L21.108.265Z" transform="translate(0 22.666) rotate(-90)" fill="#151414"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+{{~ end ~}}

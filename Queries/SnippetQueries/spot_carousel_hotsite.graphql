@@ -1,0 +1,83 @@
+query SpotCarousel($url: String, $sortKey: ProductSortKeys, $sortDirection: SortDirection) {
+    hotsite(url: $url) {
+        name,
+        breadcrumbs{
+          link
+          text
+        },
+        products(first: 20, sortKey: $sortKey, sortDirection: $sortDirection) {
+            ...productsCon
+        }
+    }
+}
+
+fragment productsCon on ProductsConnection {
+  nodes {
+    id
+    productId
+    productName
+    productVariantId
+    alias
+    freeShipping
+    averageRating
+    newRelease
+    similarProducts{
+      alias
+      image
+      name
+      imageUrl(w: 50, h: 50)
+    }
+    images(width:343, height:515) {
+      url
+      print
+    }
+    available
+    prices {
+      listPrice
+      price
+      discountPercentage
+      installmentPlans{
+        displayName
+        name
+        installments{
+          discount
+          fees
+          number
+          value
+        }
+      }
+      bestInstallment {
+        name
+        displayName
+        discount
+        fees
+        number
+        value
+      }
+    }
+    promotions {
+      content
+      id
+      stamp
+      fullStampUrl
+      title
+      disclosureType
+    }
+    addToCartFromSpot
+    informations{
+      id
+      title
+      type
+      value
+    }
+    subscriptionGroups{
+      recurringTypes{
+        name
+        days
+        recurringTypeId
+      }
+      subscriptionGroupId
+      subscriptionOnly
+    }
+  }
+}

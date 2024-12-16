@@ -1,0 +1,13 @@
+<div class="benefits">
+    <div class="container">
+        <div class="benefits-slide swiper">
+            <div class="swiper-wrapper">
+                {{~ for benefit in settings.theme.options.benefits ~}}
+                    <div class="swiper-slide">
+                        <strong>{{ benefit.title }}</strong> {{ benefit.text }}
+                    </div>
+                {{~ end ~}}
+            </div>
+        </div>
+    </div>
+</div>

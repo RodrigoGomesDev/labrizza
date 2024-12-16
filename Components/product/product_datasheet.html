@@ -1,0 +1,36 @@
+{{~ if settings.theme.options.product_datasheet ~}}
+    {{~ product_data = [] ~}}
+
+    {{~ if product.sku ~}}
+        {{~ product_data_item = 'SKU|' ~}}
+        {{~ product_data_item = product_data_item | string.append product.sku ~}}
+        {{~ product_data = product_data | array.add product_data_item ~}}
+    {{~ end ~}}
+    
+    {{~ if product.product_brand ~}}
+        {{~ product_data_item = 'Marca|' ~}}
+        {{~ product_data_item = product_data_item | string.append product.product_brand.name ~}}
+        {{~ product_data = product_data | array.add product_data_item ~}}
+    {{~ end ~}}
+
+    {{~ if product.available && product.stock > 0 ~}}
+        {{~ product_data = product_data | array.add 'Disponibilidade|Em estoque' ~}}
+    {{~ else ~}}
+        {{~ product_data = product_data | array.add 'Disponibilidade|Esgotado' ~}}
+    {{~ end ~}}
+
+    {{~ if product_data != [] ~}}
+        <div class="product-datasheet product-section section">
+            <h2 class="section-title">Ficha Técnica</h2>
+            <table>
+                {{~ for product_data_items in product_data ~}}
+                    <tr>
+                        {{~ product_data_item = product_data_items | string.split '|' ~}}
+                        <td>{{ product_data_item[0] }}</td>
+                        <td>{{ product_data_item[1] }}</td>
+                    </tr>
+                {{~ end ~}}
+            </table>
+        </div>
+    {{~ end ~}}
+{{~ end ~}}

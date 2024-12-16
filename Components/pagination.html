@@ -1,0 +1,125 @@
+{{ ##
+    Description: Renders a pagination button depending on the pagination
+                 type: by offset or by cursor (buttons with page numbers or "show more button", respectively).
+                 For the first option it is necessary to set a window range to be
+                 be displayed in the component in settings.json
+    Params:
+    - products: the products returned from the query response
+    - page_size: the quantity of products displayed on a page
+    - current_page: the current page of products
+    Usage:
+      pagination products: data..products page_size: page_size current_page: current_page
+## }}
+
+{{~ if products?.page_info # Pagination by cursor ~}}
+    {{~ if (products.page_info.has_next_page) ~}}
+        <div class="pagination pagination-button-more" id="div-button-show-more" data-end-cursor="{{ products.page_info.end_cursor }}">
+            <button type="button" class="btn {{ if settings.theme.options.pagination_type == 'infinite-scroll' }} button-infinite-scroll {{ end }}" id="show-more-button">Mostrar mais</button>
+        </div>
+    {{~ end ~}}    
+{{~ else # Pagination by offset ~}}
+    {{ 
+        func totalPages
+            total = products.total_count / page_size | math.ceil | string.append ""
+            ret total | string.to_int
+        end
+        total = totalPages
+    }}
+    {{~ if total > 1 ~}}
+        <div class="pagination flex justify-center items-center my-3">
+            <nav aria-label="Page navigation">
+                <ul class="flex flex-row items-start">
+                    {{~ if current_page != 1 # Buttons for previous page and first page ~}}
+                        <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_prev'><a class="link px-4 py-2" id='prev-page'
+                            onclick="selectPage('{{ current_page - 1 }}');" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" style="transform: rotate(180deg);"><path data-name="chevron-right" d="M10.586,5.929l1-1,5,5-5,5-1-1,4-4Z" transform="translate(-10.586 -4.929)"></path></svg></a>
+                        </li>
+                    {{~ end ~}}
+                    {{ window_size = (settings.pagination_by_offset.window * 2) + 1 }}
+                    {{~ if settings.theme.options.pagination_type == 'select' ~}}
+                        <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700">
+                            <select onchange="selectPage(this.value);">
+                                {{~ for page in 1..total ~}}
+                                    {{~ if current_page == page ~}}
+                                        <option value="{{page}}" selected>{{page}}</option>
+                                    {{~ else ~}}
+                                        <option value="{{page}}">{{page}}</option>
+                                    {{~ end ~}}
+                                {{~ end ~}}
+                            </select>
+                            <span>de {{ total }}</span>
+                        </li>
+                    {{~ else ~}}
+                        {{~ if total < window_size # Window range size is greater than the total of pages ~}}
+                            {{~ for page in 1..total ~}}
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{page}}'>
+                                    <a 
+                                    class="link px-4 py-2" 
+                                    id='{{page}}'
+                                    onclick="selectPage(this.id);" 
+                                    href="#">{{page}}</a>
+                                </li>
+                            {{~ end ~}}
+                        {{~ else # Total pages is greater than window range size ~}}
+                            {{ 
+                                if current_page > settings.pagination_by_offset.window
+                                    min = (current_page - settings.pagination_by_offset.window) | string.append "" | string.to_int
+                                else
+                                    min = 1
+                                end
+
+                                if (current_page + settings.pagination_by_offset.window) < total
+                                    max = (current_page + settings.pagination_by_offset.window) | string.append "" | string.to_int
+                                else
+                                    max = total
+                                end
+                            }}
+                            <div class="hidden lg:flex">
+                            {{~ if min > 1 && max < total # Display page window in the middle of range ~}}
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_1'><a class="link px-4 py-2" id='1'
+                                    onclick="selectPage(1);" href="#">1</a>
+                                </li>
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700  disabled" id='pagination_space'><a class="link px-4 py-2" id='space-before'>...</a></li>
+                                {{ for page in min..max }}
+                                    <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{page}}'><a class="link px-4 py-2" id='{{page}}'
+                                        onclick="selectPage(this.id);" href="#">{{page}}</a>
+                                    </li>
+                                {{~ end ~}}
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700  disabled" id='pagination_space'><a class="link px-4 py-2" id='space-after'>...</a></li>
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{total}}'><a class="link px-4 py-2" id='{{total}}'
+                                    onclick="selectPage('{{total}}');" href="#">{{total}}</a>
+                                </li>
+                            {{~ else if min == 1 && max < total # Display page window in the beginning of range ~}}
+                                {{~ for page in min..max ~}}
+                                    <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{page}}'><a class="link px-4 py-2" id='{{page}}'
+                                        onclick="selectPage(this.id);" href="#">{{page}}</a>
+                                    </li>
+                                {{~ end ~}} 
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700  disabled" id='pagination_space'><a class="link px-4 py-2" id='space-after'>...</a></li>
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{total}}'><a class="link px-4 py-2" id='{{total}}'
+                                    onclick="selectPage('{{total}}');" href="#">{{total}}</a>
+                                </li>
+                            {{~ else # Display page window in the end of range ~}}
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_1'><a class="link px-4 py-2" id='1'
+                                    onclick="selectPage(1);" href="#">1</a>
+                                </li>
+                                <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700  disabled" id='pagination_space'><a class="link px-4 py-2" id='space-before'>...</a></li>
+                                {{ for page in min..max }}
+                                    <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_{{page}}'><a class="link px-4 py-2" id='{{page}}'
+                                        onclick="selectPage(this.id);" href="#">{{page}}</a>
+                                    </li>
+                                {{~ end ~}}
+                            {{~ end ~}}
+                            </div>
+                        {{~ end ~}}
+                    {{~ end ~}}
+
+                    {{~ if current_page != total # Buttons for next page and last page ~}}
+                        <li class="page-item inline-flex items-center border border-secondary-300 text-sm font-medium hover:bg-secondary-50 hover:text-secondary-700" id='pagination_next'><a class="link px-4 py-2" id='next-page'
+                            onclick="selectPage('{{ current_page + 1 }}');" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10"><path data-name="chevron-right" d="M10.586,5.929l1-1,5,5-5,5-1-1,4-4Z" transform="translate(-10.586 -4.929)"></path></svg></a>
+                        </li>
+                    {{~ end ~}}
+                </ul>
+            </nav>
+        </div>
+    {{~ end ~}}
+{{~ end ~}}

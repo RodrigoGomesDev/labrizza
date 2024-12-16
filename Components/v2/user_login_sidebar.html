@@ -1,0 +1,28 @@
+{{ ##
+    Description: Renders user component
+    Params:
+        - checkout_url: store checkout URL
+    Usage:
+        user_login checkout_url: url
+## }}
+
+<div class="account-sidebar">
+    <input type="hidden" id="login-url" value="{{ checkout_url }}Login/Authenticate?returnUrl=">
+    <svg xmlns="http://www.w3.org/2000/svg" width="23.635" height="22" viewBox="0 0 23.635 22">
+        <path d="M23.151,19.838a11.765,11.765,0,0,0-7.266-6.6,11.066,11.066,0,0,0,1.72-6.412A5.554,5.554,0,0,0,11.9,1.018,5.557,5.557,0,0,0,6.083,6.731a11.076,11.076,0,0,0,1.607,6.44A11.761,11.761,0,0,0,.31,19.639l-.4.918.929.382A32.419,32.419,0,0,0,11.7,23.017a32.427,32.427,0,0,0,10.9-1.886l.935-.364-.388-.927ZM11.871,2.975a3.664,3.664,0,0,1,3.776,3.838c-.026,2.933-.823,5.163-2.185,6.119l-1.685,1.183L10.117,12.9c-1.346-.981-2.1-3.224-2.077-6.158a3.661,3.661,0,0,1,3.832-3.771Zm-.153,18.084a31.175,31.175,0,0,1-9.144-1.573,10.294,10.294,0,0,1,7.157-4.833l2.045-.412,2.037.446a10.307,10.307,0,0,1,7.074,4.957,31.014,31.014,0,0,1-9.171,1.415Z" transform="translate(0.095 -1.018)" fill="#000000"/>
+    </svg>
+    <div class="hidden" id="logged-user">
+        <span>Ol&aacute;, <span id="user-name"></span></span>
+        <div class="login-links">
+            <a href="{{ checkout_url }}MinhaConta/Dados" title="Minha Conta">Minha conta</a>
+        </div>
+    </div>  
+    <div id="login">
+        <span>Minha Conta</span>
+        <div class="login-links">
+            <a href="{{ checkout_url }}Login/Authenticate?returnUrl=" title="Entrar">Entrar</a>
+            <span>/</span>
+            <a href="{{ checkout_url }}login/cadastro" title="Cadastrar">Cadastrar</a>
+        </div>
+    </div>
+</div>

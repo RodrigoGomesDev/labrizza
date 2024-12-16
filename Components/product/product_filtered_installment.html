@@ -1,0 +1,30 @@
+{{
+    func select_installments(plans) #Function used to filter installment_plans
+        contains = false
+        if displayed_installment && (plans.display_name | string.downcase | string.contains (displayed_installment | string.downcase))
+            contains = true
+        end
+        ret contains
+    end
+}}
+
+{{~ if installment_plans ~}}
+    <p class="product-installments filtered-installment">
+        {{~ if displayed_installment && displayed_installment.size > 0 ~}}
+            {{~ 
+                filtered_installment_plan = installment_plans | array.filter @select_installments | array.first
+                installment = filtered_installment_plan.installments | array.last 
+            ~}}
+
+            {{~ if filtered_installment_plan.display_name | string.contains "Boleto" ~}}
+                {{installment.value | math.format "c" "pt-BR"}} no boleto
+            {{~ else if filtered_installment_plan.display_name | string.contains "Cartão" ~}}
+                ou em {{installment.number}}x de {{installment.value | math.format "c" "pt-BR"}} {{if installment.fees}}com juros{{else}}sem juros{{end}} no cartão
+            {{~ else if filtered_installment_plan.display_name | string.contains "Pix" ~}}
+                {{installment.value | math.format "c" "pt-BR"}} no PIX
+            {{~ end ~}}
+        {{~ else ~}}
+            ou em {{installment.number}}x de {{installment.value | math.format "c" "pt-BR"}} {{if installment.fees}}com juros{{else}}sem juros{{end}}
+        {{~ end ~}}
+    </p>
+{{~ end ~}}

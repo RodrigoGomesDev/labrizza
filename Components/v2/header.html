@@ -1,0 +1,79 @@
+{{ page_scripts position: "BODY_START" scripts: common.scripts }}
+
+<header class="header">
+    <div class="header-content">
+        <div class="container">
+            
+            <div class="header-menu lg-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14.064" viewBox="0 0 20 14.064">
+                    <path d="M2,6A1,1,0,0,1,3,5H21a1,1,0,0,1,0,2H3A1,1,0,0,1,2,6Z" transform="translate(-2 -5)" fill="#ffffff"/>
+                    <path d="M2,12.032a1,1,0,0,1,1-1H21a1,1,0,0,1,0,2H3A1,1,0,0,1,2,12.032Z" transform="translate(-2 -5)" fill="#ffffff"/>
+                    <path d="M3,17.065a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z" transform="translate(-2 -5)" fill="#ffffff"/>
+                </svg>
+            </div>
+            
+            <div class="header-logo-menu">
+                {{ navbar store: store menu_groups: common.menu_groups position: "Topo Header" categories: common.categories }}
+                <a href="/" class="logo">            
+                    <img src="{{- store.urls.static_img}}labrizza.png?theme={{store.theme}}&v={{store.last_modified}}" alt="logo" width="177" height="42">
+                </a>
+                     
+                <div class="header-account-cart">
+                    <div class="header-cep">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g>
+                                <path stroke="black" stroke-width="0.5" d="M12,2A7.008,7.008,0,0,0,5,9c0,5.353,6.036,11.45,6.293,11.707l.707.707.707-.707C12.964,20.45,19,14.353,19,9A7.008,7.008,0,0,0,12,2Zm0,16.533C10.471,16.825,7,12.553,7,9A5,5,0,0,1,17,9C17,12.546,13.527,16.823,12,18.533Z" fill="#fff"/>
+                                <path stroke="black" stroke-width="0.5" d="M12,6a3,3,0,1,0,3,3A3,3,0,0,0,12,6Zm0,4a1,1,0,1,1,1-1A1,1,0,0,1,12,10Z" fill="#fff"/>
+                            </g>
+                        </svg>
+                        Meu cep
+                    </div>
+
+                    <div class="header-search-wrapper">
+                        <a href="javascript: void(0);" rel="noreferrer noopener" class="header-search-button">
+                            <svg id="magnifying-glass-browser" xmlns="http://www.w3.org/2000/svg" width="19.405" height="20" viewBox="0 0 19.405 20">
+                                <g id="Grupo_59" data-name="Grupo 59" transform="translate(0)">
+                                  <path id="Caminho_111" data-name="Caminho 111" d="M20.668,13.056a7.678,7.678,0,1,0-1.044.95l5.783,5.783A.7.7,0,0,0,25.9,20a.675.675,0,0,0,.493-.211.715.715,0,0,0,0-1ZM8.6,7.777a6.37,6.37,0,1,1,6.37,6.37A6.375,6.375,0,0,1,8.6,7.777Z" transform="translate(-7.19)" fill="#fff"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <form class="header-search-form" onsubmit="search(event, null)">
+                        <div class="header-search-form-content">
+                            <input class="input-search" placeholder="O que procura?" spellcheck="false" autocomplete="off" type="search" id="search-bar">
+                            <button class="button-search" aria-label="Buscar" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22.638" viewBox="0 0 22 22.638">
+                                    <path d="M1.057,21.892,2.5,23.333l4.47-4.47-1.4-1.479L1.057,21.891ZM14.647,1.333A9.035,9.035,0,0,0,7.285,15.622l1.7,1.794A9.04,9.04,0,1,0,14.648,1.333Zm0,16.055a7.008,7.008,0,1,1,7.008-7.008A7.016,7.016,0,0,1,14.647,17.388Z" transform="translate(-1.333 23.695) rotate(-90)" fill="#ffffff"/>
+                                </svg>
+                            </button>
+                            <div id="autocomplete-list"></div>
+                        </div>
+                    </form>
+                    
+                    {{ user_login checkout_url: store.urls.checkout }}
+
+                    <a class="cart-toggle link" href="javascript: void(0);" rel="noreferrer noopener" aria-label="Carrinho" onclick="setCartDivVisibility()" title="Carrinho">
+                        <svg id="online-shopping-cart" xmlns="http://www.w3.org/2000/svg" width="22.036" height="20" viewBox="0 0 22.036 20">
+                            <g id="Grupo_53" data-name="Grupo 53" transform="translate(0 0)">
+                              <path id="Caminho_104" data-name="Caminho 104" d="M.815,22.861H3.152L6.481,34.9a.815.815,0,0,0,.788.6H17.5a.817.817,0,0,0,.747-.489l3.723-8.56a.825.825,0,0,0-.068-.774.809.809,0,0,0-.679-.367H9.918a.815.815,0,1,0,0,1.63H19.973l-3.016,6.929H7.88L4.552,21.829a.815.815,0,0,0-.788-.6H.815a.815.815,0,1,0,0,1.63Z" transform="translate(0 -21.231)" fill="#fff"/>
+                              <path id="Caminho_105" data-name="Caminho 105" d="M98.748,364.928A1.848,1.848,0,1,0,96.9,363.08,1.85,1.85,0,0,0,98.748,364.928Z" transform="translate(-92.253 -344.928)" fill="#fff"/>
+                              <path id="Caminho_106" data-name="Caminho 106" d="M339.767,364.844h.136a1.911,1.911,0,1,0-.136,0Z" transform="translate(-321.724 -344.844)" fill="#fff"/>
+                            </g>
+                          </svg>
+                        <span id="cart-qty-label" class="cart-quantity">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
+
+<div id="add-cart-alert"></div>
+
+{{ side_cart }}
+{{ overlay }}
+
+{{~ if page_data && page_data.banners ~}}
+    {{ banner id: "banners-top" banners: page_data.banners position: "Topo" }}
+{{~ end ~}}

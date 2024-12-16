@@ -1,0 +1,133 @@
+[
+    {
+        "name": "Branco",
+        "hex": [
+            "#FFFFFF"
+        ],
+        "alias": "agua|branc*|cristal|crystal|cru|gelo|incolor|leite|marfin*|marfim|neblina|nevoa|palid*|pele|perola*|platin*|transparent*|white"
+    },
+    {
+        "name": "Cinza",
+        "hex": [
+            "#c0c0c0"
+        ],
+        "alias" :"aco|alabaster|aluminio|chumbo|cinza|crom*|cza|ferro|fume|gelo|gray|grey|grafit*|marfi|metal|neblina|nevoa|polido|prata|silver"
+    },
+    {
+        "name": "Amarelo",
+        "hex": [
+            "#ffff00"
+        ],
+        "alias": "abacaxi|alabaster|amarel*|ambar|banana|chama|creme|croco|dourada|dourado|fire|gold|loir*|mang*|mostarda|mostarde|ocre|ouro|pele|pera"
+    },
+    {
+        "name": "Dourado",
+        "hex": [
+            "#c8a500"
+        ]
+    },
+    {
+        "name": "Verde",
+        "hex": [
+            "#35a400"
+        ],
+        "alias": "abacate|agua|camuflada|camuflado|green|jade|kiwi|lima|musgo|oceano|pera|celtic*"
+    },
+    {
+        "name": "Azul",
+        "hex": [
+            "#0f86dd"
+        ],
+        "alias" : "azl|azur*|blue|camuflad*|celeste|djeans|jeans|marin*|oceano|piscina|royal|turquesa|turqueza"
+    },
+    {
+        "name": "Água",
+        "hex": [
+            "#87d4ff"
+        ],
+        "alias" : "agua|água"
+    },
+    {
+        "name": "Esmeralda",
+        "hex": [
+            "#00a360"
+        ]
+    },
+    {
+        "name": "Roxo",
+        "hex": [
+            "#800080"
+        ],
+        "alias" : "beterraba|bonina|bordo|cassis|fucia|fuccia|fuchia|fucchia|grape|lavanda|lilas|purple|purpur*|rox*|tulip*|uva|violet*"
+    },
+    {
+        "name": "Laranja",
+        "hex": [
+            "#ffa500"
+        ],
+        "alias" :"ambar|bronze|cobre|enferrujada|enferrujado|ferrugem|laranja|mexirica|mimosa|ocre|orange|oxidad*"
+    },
+    {
+        "name": "Marrom",
+        "hex": [
+            "#cc9966"
+        ],
+        "alias" : "acaju|ambar|areia|bege|beje|beige|bordo|brown*|cafe|caqui"
+    },
+    {
+        "name": "Bege",
+        "hex": [
+            "#f0dda2"
+        ]
+    },
+    {
+        "name": "Preto",
+        "hex": [
+            "#000000"
+        ],
+        "alias" : "black|cafe|dark|fume|night|moren*|oil|onix|petro*|preta"
+    },
+    {
+        "name": "Vermelho",
+        "hex": [
+            "#ff0000"
+        ],
+        "alias" : "*acaju*|blood|bordo|cassis|cereja|chama|coral|fire|goiaba|melancia|morango|red|sangue|rubi|ruby|vinho|vm|mercur*"
+    },
+    {
+        "name": "Rosa",
+        "hex": [
+            "#f562ac"
+        ],
+        "alias": "cassis|coral|goiaba|lavanda|lilas|magent|pink|pnk|rosa|salmao|tulipa"
+    },
+    {
+        "name": "Colorido",
+        "hex": [
+            "#ff0000",
+            "#ff0000",
+            "#ffa500",
+            "#ffff00",
+            "#008000",
+            "#0000ff",
+            "#4b0082",
+            "#ee82ee",
+            "#ee82ee"
+        ],
+        "alias": "colorida*|arco-íris|rainbow|colorful|personaliz*"
+
+    },
+    {
+        "name": "Branco/Verde",
+        "hex": [
+            "#ffffff",
+            "#35a400"
+        ]
+    },
+    {
+        "name": "Amparo",
+        "hex": [
+            "#4960A8"
+        ]
+    }
+]

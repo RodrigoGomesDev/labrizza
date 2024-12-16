@@ -1,0 +1,10 @@
+{{~ if informations.size > 0 ~}}
+    <div class="product-informations product-section">
+        {{ for information in informations }}
+            <div class="product-information section">
+                <h2 class="section-title">{{ information.title }}</h2>
+                <div>{{ information.value }}</div>
+            </div>
+        {{ end }}
+    </div>
+{{ end }}

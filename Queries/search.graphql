@@ -1,0 +1,104 @@
+query Search($searchQuery: String, 
+  $partnerAccessToken: String, 
+  $resultSize: Int = 24,
+  $offset: Int, 
+  $sortKey: ProductSearchSortKeys, 
+  $sortDirection: SortDirection, 
+  $filters: [ProductFilterInput],
+  $minimumPrice: Decimal,
+  $maximumPrice: Decimal) {
+  search(query: $searchQuery, partnerAccessToken: $partnerAccessToken) {
+    redirectUrl
+    pageSize
+    searchTime
+    breadcrumbs{
+      link
+      text
+    }
+    contents {
+      content
+      height
+      title
+      width 
+      position
+    }
+    productsByOffset(limit: $resultSize, offset: $offset, sortKey: $sortKey, sortDirection: $sortDirection, filters: $filters, minimumPrice: $minimumPrice, maximumPrice: $maximumPrice) {
+      totalCount
+      pageSize
+      page
+      items {
+        id
+        productId
+        productName
+        productVariantId
+        alias
+        averageRating
+        similarProducts{
+          alias
+          image
+          name
+          imageUrl(w: 50, h: 50)
+        }
+        images(width: 346, height: 520) {
+          url
+          print
+        }
+        available
+        prices {
+          listPrice
+          price
+          discountPercentage
+          bestInstallment {
+            name
+            displayName
+            discount
+            fees
+            number
+            value
+          }
+          wholesalePrices{
+            price
+            quantity
+          }
+        }
+        promotions{
+          content
+          id
+          stamp
+          fullStampUrl
+          title
+          disclosureType
+        }
+        addToCartFromSpot
+        productCategories {
+          name
+        }
+      }
+    }
+    aggregations {
+      filters {
+        field
+        values {
+          name
+          quantity
+        }
+      }
+      priceRanges{
+        range
+        quantity
+      }
+      maximumPrice
+      minimumPrice
+    }
+    banners {
+      bannerUrl
+      openNewTab
+      width
+      height
+      order
+      position
+      title
+      urlOnClick
+    }
+  }
+}

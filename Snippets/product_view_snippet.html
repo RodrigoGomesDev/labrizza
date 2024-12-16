@@ -1,0 +1,10 @@
+{{ ##
+    Description: Re-renders the product view
+    Params:
+        - Uses product.graphql
+    Usage:
+        await client.snippet.render("product_view_snippet.html", ...);
+## }}
+{{~ selected_variant = data.product.attribute_selections?.selected_variant ~}}
+<input hidden id="product-variant-data-layer" value="{{selected_variant?.sku}}">
+{{ product_view product: data.product }}

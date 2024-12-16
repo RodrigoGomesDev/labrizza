@@ -1,0 +1,11 @@
+{{~ if product.buy_together && product.buy_together.size > 0 ~}}
+    <div class="product-buy-toguether product-section section">
+        {{~ for bt_product in product.buy_together ~}}
+            <div buy-together-row-div
+                id="buy-together-row-{{ product.product_id }}-{{ bt_product.product_id }}"
+                buy-together-product-id = "{{ bt_product.product_id }}"       
+                page-product-id = "{{ product.product_id }}">
+            </div>
+        {{~ end ~}}
+    </div>
+{{~ end ~}}

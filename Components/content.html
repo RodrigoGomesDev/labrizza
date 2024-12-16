@@ -1,0 +1,13 @@
+{{~ grouped_contents = contents | group.by @(do; ret $0.position;end) ~}}
+{{~ filtered_contents = grouped_contents | group.get position ~}}
+{{~ title = title | string.lstrip | string.rstrip ~}}
+
+{{ for content in filtered_contents }}
+    <div class="content content-{{ position | string.downcase }}">
+        {{~ content_title = content.title | string.lstrip | string.rstrip ~}}
+        {{ if content_title != title }}
+            <h2 class="content-title">{{ content.title }}</h2>
+        {{ end }}
+        <div class="content-content">{{ content.content }}</div>
+    </div>
+{{ end }}

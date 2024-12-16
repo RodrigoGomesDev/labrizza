@@ -1,0 +1,9 @@
+query ShippingQuotes($cep: CEP, $productVariantId: Long, $products: [productsInput]) {
+  shippingQuotes(cep: $cep, productVariantId: $productVariantId, products: $products) {
+    name
+    type
+    value
+    deadline
+    deadlineInHours
+  }
+}

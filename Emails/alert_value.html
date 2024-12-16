@@ -1,0 +1,32 @@
+<!-- HEADER -->
+{{header_mail}}
+<!-- END HEADER -->
+
+<!-- MAIN -->
+<table border="0" width="620" cellpadding="0" cellspacing="0" style="width:620px;max-width:620px;border: 30px solid #fff;">
+  <tbody>
+      <tr align="center">
+          <td>
+              <h1 style="font-size: 28px; line-height: 100%;">Alerta de Valor</h1>
+          </td>
+      </tr>
+      <tr align="center">
+          <td>
+              <p>Olá!</p>
+              <p>O produto que você cadastrou para receber alerta de preço está com uma oferta especial!</p>
+              <img src="{{produto.imagem}}" alt="{{produto.nome}}" style="max-width: 100%;">
+              <p><strong>Nome do Produto:</strong> {{produto.nome}}</p>
+              <p><strong>Valor Atual:</strong> R$ {{produto.valoratual}}</p>
+              <p><strong>Valor Desejado:</strong> R$ {{produto.valordesejado}}</p>
+              <p>Aproveite essa oportunidade e adquira o produto agora mesmo em nosso site: <a href="{{configuracao.url_ecommerce}}" style="color: #000; text-decoration: underline; font-weight: bold;" target="_blank">{{configuracao.url_ecommerce}}</a>.</p>
+              <p>Obrigado por utilizar nosso serviço de alerta de valor!</p>
+              <p>Equipe {{configuracao.nome_ecommerce}}</p>
+          </td>
+      </tr>
+  </tbody>
+</table>
+<!-- END MAIN -->
+
+<!-- FOOTER -->
+{{footer_mail}}
+<!-- END FOOTER -->

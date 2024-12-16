@@ -1,0 +1,52 @@
+{{##
+    Description: Renders a modal with all the installment options
+    Params:
+        - installments: product installment plans (available on Admin).
+            If needed, the config option payment_groups.display on settings.json
+            can be used to define which plans to display on modal.
+            (e.g., display: ["Boleto Yapay", "Cartão Sem Desconto", "Pix"])
+    Usage:
+        product_installments installments: product.prices.installment_plans
+##}}
+{{~ #Function used to filter the installment plans available if any display option is set on settings.json
+    func select_display(plans)
+        contains = false
+        if settings.payment_groups.display && (settings.payment_groups.display | array.contains plans.display_name)
+            contains = true
+        end
+        ret contains
+    end
+    
+    installment_plans = installments | array.filter @select_display
+    if installment_plans == empty
+        installment_plans = installments
+    end
+~}}
+
+<div class="flex flex-col items-start w-full border-t border-b p-2 my-2">
+    <h2 class="mb-4 text-lg">Formas de pagamento</h2>
+    <div class="flex justify-between items-start">
+        {{~ for plan in installment_plans ~}}
+            <button class="flex items-center justify-center mr-2 border-secondary-100 rounded-md py-1 px-2 hover:shadow-xl" value="{{plan.display_name}}" onclick="showInstallments(this)">
+                {{if plan.display_name == 'Boleto'}}
+                    <img src="{{- store.urls.static_img}}icons/barcode.svg?theme={{store.theme}}&v={{store.last_modified}}" alt="barcode" class="w-6 h-6 mr-1">
+                {{else}}
+                    <img src="{{- store.urls.static_img}}icons/credit-card.svg?theme={{store.theme}}&v={{store.last_modified}}" alt="credit-card" class="w-6 h-6 mr-1">
+                {{end}}
+                    {{plan.display_name}}
+            </button>
+        {{~ end ~}}
+    </div>
+    {{~ for plan in installment_plans ~}}
+        <div id="installments-tab" class="hidden" value="{{plan.display_name}}">
+            <table>
+                {{~ for installment in plan.installments~}}
+                <tr>
+                    <td>{{installment.number}}x de {{installment.value | math.format "c" "pt-BR"}} {{if installment.fees}}com juros{{else}}sem juros{{end}}</td>
+                    <td class="font-semibold">{{installment.number | math.times installment.value | math.format "c" "pt-BR"}}</td>
+                </tr>
+                {{~ end ~}}
+            </table>
+        </div>
+    {{~ end ~}}
+</div>

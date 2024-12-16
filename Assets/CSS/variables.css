@@ -1,0 +1,136 @@
+html {
+    
+    /* Font */
+    --font_family: 'Roboto', Arial, san-serif;
+    
+    /* General */
+    --color_general_text: #2B2828;
+    --color_general_text_small: #707070;
+    --color_general_text_background: #EFEFEF;
+    
+    /* Inputs */
+    --color_input_text: #151414;
+    --color_input_background: #ffffff;
+    --color_input_border: #151414;
+    --select_arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23151414' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    
+    /* Header */
+    --color_header_background: #000000;
+    --color_header_menu: #ffffff;
+    --color_header_icons: #ffffff;
+    
+    /* Benefits */
+    --color_benefits_background: #F8F8F8;
+    --color_benefits_text: #151414;
+    
+    /* Sections */
+    --color_sections_title: #151414;
+    
+    /* Pages */
+    --color_pages_title: #151414;
+    
+    /* Products */
+    --color_products_name: #524E4E;
+    --color_products_price: #151414;
+    
+    /* Seals */
+    --color_seals_discount_background: #ED6161;
+    --color_seals_discount_text: #ffffff;
+    --color_seals_shipping_background: #151414;
+    --color_seals_shipping_text: #ffffff;
+    --color_seals_new_background: #151414;
+    --color_seals_new_text: #ffffff;
+    --color_seals_featured_background: #151414;
+    --color_seals_featured_text: #ffffff;
+    
+    /* Slides */
+    --color_slides_arrows: #151414;
+    --color_slides_dots: #524E4E;
+    
+    /* Buttons */
+    --color_buttons_cart_background: #151414;
+    --color_buttons_cart_background_hover: #413C3C;
+    --color_buttons_cart_border: #151414;
+    --color_buttons_cart_border_hover: #413C3C;
+    --color_buttons_cart_text: #ffffff;
+    --color_buttons_cart_text_hover: #ffffff;
+    --color_buttons_action_1_background: #151414;
+    --color_buttons_action_1_background_hover: #413C3C;
+    --color_buttons_action_1_border: #151414;
+    --color_buttons_action_1_border_hover: #413C3C;
+    --color_buttons_action_1_text: #ffffff;
+    --color_buttons_action_1_text_hover: #ffffff;
+    --color_buttons_action_2_background: #ffffff;
+    --color_buttons_action_2_background_hover: #151414;
+    --color_buttons_action_2_border: #151414;
+    --color_buttons_action_2_border_hover: #151414;
+    --color_buttons_action_2_text: #151414;
+    --color_buttons_action_2_text_hover: #ffffff;
+    --color_buttons_filter_background: #F8F8F8;
+    --color_buttons_filter_background_hover: #E6E6E6;
+    --color_buttons_filter_border: #F8F8F8;
+    --color_buttons_filter_border_hover: #E6E6E6;
+    --color_buttons_filter_text: #151414;
+    --color_buttons_filter_text_hover: #151414;
+    
+    /* Newsletter */
+    --color_news_background: #F8F8F8;
+    --color_news_text: #151414;
+    --color_news_icon: #151414;
+    --color_news_popup_background: #ffffff;
+    --color_news_popup_title: #151414;
+    --color_news_popup_text: #151414;
+    --color_news_popup_input_background: #efefef;
+    --color_news_popup_input_text: #151414;
+    --color_news_popup_button_close_background: #151414;
+    --color_news_popup_button_close_background_hover: #413C3C;
+    --color_news_popup_button_close_text: #ffffff;
+    --color_news_popup_button_close_text_hover: #ffffff;
+    --color_news_popup_button_background: #151414;
+    --color_news_popup_button_background_hover: #413C3C;
+    --color_news_popup_button_border: #151414;
+    --color_news_popup_button_border_hover: #413C3C;
+    --color_news_popup_button_text: #ffffff;
+    --color_news_popup_button_text_hover: #ffffff;
+    --color_news_message_background: #EFEFEF;
+    --color_news_message_text: #151414;
+    
+    /* Social */
+    --color_social_background: #151414;
+    --color_social_background_hover: #413C3C;
+    --color_social_icon: #ffffff;
+    --color_social_icon_hover: #ffffff;
+    
+    /* Offer Button */
+    --color_offerbutton_button_background_1: #151414;
+    --color_offerbutton_button_text_1: #FFFFFF;
+    --color_offerbutton_button_background_2: #ED6161;
+    --color_offerbutton_button_text_2: #FFFFFF;
+    --color_offerbutton_content_background: #151414;
+    --color_offerbutton_content_text: #ffffff;
+    --color_offerbutton_cron_background: #ED6161;
+    --color_offerbutton_cron_text: #FFFFFF;
+    
+    /* Offer Bar */
+    --color_offerbar_background: #000000;
+    --color_offerbar_text: #FFFFFF;
+    --color_offerbar_button_background: #2E66BD;
+    --color_offerbar_button_background_hover: #1E4C95;
+    --color_offerbar_button_text: #FFFFFF;
+    --color_offerbar_button_text_hover: #FFFFFF;
+    --color_offerbar_cron_background: #42E7A2;
+    --color_offerbar_cron_text: #000000;
+    
+    /* Offer Slide */
+    --color_offerslide_background: #5db4ff;
+    --color_offerslide_text: #000000;
+    --color_offerslide_cron_background: #000000;
+    --color_offerslide_cron_text: #ffffff;
+    
+    /* Footer */
+    --color_footer_background: #000000;
+    --color_footer_title: #ffffff;
+    --color_footer_link: #ffffff;
+    --color_footer_text: #ffffff;
+    
+}

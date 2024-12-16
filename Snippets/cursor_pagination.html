@@ -1,0 +1,16 @@
+{{ ##
+    Description: Renders the product list with infinte scroll
+    Params:
+        - Uses search_with_cursor.graphql
+    Usage:
+        await client.snippet.render("cursor_pagination.html", ...);
+## }}
+{{ 
+    if data.search
+        products = data.search.products ?? data.search.products_by_offset
+    else if data.hotsite
+        products = data.hotsite.products ?? data.hotsite.products_by_offset
+    end
+}}
+{{ spot_list products: products }}
+{{ pagination products: products page_size: page_size current_page: current_page }}

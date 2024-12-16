@@ -1,0 +1,140 @@
+﻿{
+    
+  "access_token": "tcs_labri_f018bb2d29bd48fe94a84ab86eed4fe0",
+  
+  "theme": {
+      "name": "Moda One",
+      "version": "1.0",
+      "options": {
+          "benefits": [
+              {
+                  "title": "Frete grátis",
+                  "text": "para todo o Brasil"
+              },
+              {
+                  "title": "Parcelamento",
+                  "text": "sem juros"
+              },
+              {
+                  "title": "Compra",
+                  "text": "segura"
+              }
+          ],
+          "social": [
+              {
+                  "title": "Instagram",
+                  "url": "https://www.instagram.com/proexdigital"
+              },
+              {
+                  "title": "Facebook",
+                  "url": "https://www.facebook.com/proexdigital"
+              },
+              {
+                  "title": "Tiktok",
+                  "url": "https://www.tiktok.com"
+              },
+              {
+                  "title": "YouTube",
+                  "url": "https://www.youtube.com"
+              },
+              {
+                  "title": "X",
+                  "url": "https://x.com"
+              },
+              {
+                  "title": "Pinterest",
+                  "url": "https://www.pinterest.com"
+              }
+          ],
+          "offers": [
+              {
+                  "type": "button",
+                  "promotion_id": 0
+              },
+              {
+                  "type": "bar",
+                  "promotion_id": 0
+              },
+              {
+                  "type": "slide",
+                  "promotion_id": 0
+              }
+          ],
+          "spot_carousel_quantity": 5,
+          "menu_limit": 5,
+          "menu_all": {
+              "status": 1,
+              "type": "toggle"
+          },
+          "filter_type": "sidebar",
+          "pagination_type": "select",
+          "product_quantity": true,
+          "product_share": true,
+          "product_datasheet": true,
+          "product_reviews": true,
+          "spot_reviews": true,
+          "wishlist": true
+      }
+  },
+  
+  "favicon_path": "favicon.png",
+  
+  "email": "suporte@sacproexdigital.com.br",
+  "phone": "(22) 93618-0849",
+  
+  "pagination_by_offset": {
+      "window": 3
+  },
+  
+  "breadcrumb": {
+      "home_text": "Home"
+  },
+  
+  "sort": {
+      "options": [
+          {
+              "name": "Nome A-Z",
+              "setting": {
+                  "key": "NAME",
+                  "direction": "ASC"
+              }
+          },
+          {
+              "name": "Mais Vendidos",
+              "setting": {
+                  "key": "SALES",
+                  "direction": "DESC"
+              }
+          },
+          {
+              "name": "Desconto",
+              "setting": {
+                  "key": "DISCOUNT",
+                  "direction": "DESC"
+              }
+          },
+          {
+              "name": "Menor Preço",
+              "setting": {
+                  "key": "PRICE",
+                  "direction": "ASC"
+              }
+          },
+          {
+              "name": "Maior Preço",
+              "setting": {
+                  "key": "PRICE",
+                  "direction": "DESC"
+              }
+          },
+          {
+              "name": "Data Lançamento",
+              "setting": {
+                  "key": "RELEASE_DATE",
+                  "direction": "DESC"
+              }
+          }
+      ]
+  }
+  
+}

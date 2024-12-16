@@ -1,0 +1,27 @@
+<ol class="breadcrumb flex f-wrap" itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    {{~ if settings.breadcrumb?.home_text ~}}
+        <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" class="t-color" href="/">
+                <span itemprop="name">{{ settings.breadcrumb.home_text }}</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
+    {{~ end ~}}
+
+    {{~ for breadcrumb in breadcrumbs ~}}
+        {{~ breadcrumbLink = "" ~}}
+        {{~ if breadcrumb.link | string.starts_with "/" ~}}
+            {{~ breadcrumbLink = breadcrumb.link ~}}
+        {{~ else ~}}
+            {{~ breadcrumbLink = "/" | string.append breadcrumb.link ~}}
+        {{~ end ~}}
+        <li class="breadcrumb-item flex align-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" class="t-color" href="{{ breadcrumbLink }}" title="{{ breadcrumb.text }}">
+                <span itemprop="name">{{ breadcrumb.text }}</span>
+            </a>
+            <meta itemprop="position" content="{{ for.index + 2 }}" />
+        </li>
+    {{~ end ~}}
+
+</ol>

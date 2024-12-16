@@ -1,0 +1,9 @@
+{{ ##
+    Description: Re-renders the product view
+    Params:
+        - Uses product.graphql
+    Usage:
+        await client.snippet.render("buy_list_snippet.html", ...);
+## }}
+<input hidden id="buy-list-data-layer-{{data.product.product_id}}" value="{{data.product | map.to_json | html.escape}}"/>
+{{ buy_list_product_view product: data.product }}

@@ -1,0 +1,36 @@
+{{ data_layer_config common: common }}
+
+{{ page_scripts position: "HEADER_START" scripts: common.scripts }}
+
+{{ head_title = title }}
+
+{{ for seo_item in page_data.seo }}
+    {{~ if seo_item.type == 'TITLE' && seo_item.content ~}}
+        {{ head_title = seo_item.content }}
+    {{~ end ~}}
+{{ end }}
+
+<title>{{ head_title }}</title>
+
+{{~ capture favicon_source ~}}
+    {{- store.urls.static_img}}{{settings.favicon_path}}?theme={{store.theme -}}&v={{store.last_modified}}
+{{~ end ~}}
+
+<link rel="icon" type="image/png" href="{{ favicon_source }}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+{{ asset type: "css" paths: ["navbar", "footer", "mini_cart", "user_login", "spot", "product", "output", "swiper.min", "variables", "theme", "themev2"] }}
+
+{{ page_scripts position: "HEADER_END" scripts: common.scripts }}
+
+{{~ if page_data.seo ~}}
+    {{ meta_tags seo: page_data.seo }}
+{{~ end ~}}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<input hidden id="data-layer-page-type" value="{{ page }}">

@@ -1,0 +1,31 @@
+<!-- HEADER -->
+{{header_mail}}
+<!-- END HEADER -->
+
+<!-- MAIN -->
+<table border="0" width="620" cellpadding="0" cellspacing="0" style="width:620px;max-width:620px;border: 30px solid #fff;">
+    <tbody>
+        <tr align="center">
+            <td>
+                <h1 style="font-size: 28px; line-height: 100%;">Confirmação de Cadastro!</h1>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>
+                <p>Bem vindo, à {{configuracao.nome_ecommerce}}.</p><br>
+                {{ if usuario.sexo == "Masculino" }}
+                    <p>Oi {{ usuario.nome }}, bem vindo!</p>
+                {{ else if usuario.sexo == "Feminino" }}
+                    <p>Olá {{ usuario.nome }}, bem vinda!</p>
+                {{ else }}
+                    <p>Olá {{usuario.nome}}</p>
+                {{ end }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- END MAIN -->
+
+<!-- FOOTER -->
+{{footer_mail}}
+<!-- END FOOTER -->

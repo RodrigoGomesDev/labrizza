@@ -1,0 +1,32 @@
+{{ ##
+Description: Renders checkbox fields to filter product price
+Params:
+- price_ranges: price ranges associated with the search
+Usage:
+price_range_filter aggregations: data_search.aggregations
+## }}
+
+<div class="filter-item price-range-filter">
+    <h4>Preço</h4>
+    <div class="filter-content">
+        {{ for range in price_ranges }}
+            {{
+                parsed_range = range.range | string.split "-"
+                if parsed_range[0] == "*"
+                price_range = "Até " + (parsed_range[1] | string.to_double | math.format "c" "pt-BR" )
+                else if parsed_range[1] == "*"
+                price_range = "Mais de " + (parsed_range[0] | string.to_double | math.format "c" "pt-BR" )
+                else
+                price_range = "De " + (parsed_range[0] | string.to_double | math.format "c" "pt-BR" )
+                price_range += " até " + (parsed_range[1] | string.to_double | math.format "c" "pt-BR" )
+                end
+            }}
+            {{ if range.quantity > 0 }}
+                <label>
+                    <input type="checkbox" id='{{ range.range }}' name='{{ range.range }}' onchange="setRangePriceFilter(this.id);">
+                    <span>{{ price_range }} ({{ range.quantity }})</span>
+                </label>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>

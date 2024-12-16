@@ -1,0 +1,11 @@
+{{ ##
+    Description: Renders the partner's associated logo
+    Params:
+        - partner_access_token: the token of the partner
+        - Uses SnippetQueries/partner_logo.graphql
+    Usage:
+        await client.snippet.render("partner_logo_snippet.html", ...);
+## }}
+<a id="partner_logo" href="/">
+    <img src="{{ data.partner.full_url_logo }}" width="40px" height="40px" alt="partner-logo">
+</a>

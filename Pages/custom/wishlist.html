@@ -1,0 +1,50 @@
+{{ page_type = 'hotsite' }}
+{{ page_title = 'Lista de Desejos' }}
+{{ page_slug = page_type }}
+{{ page_data = data.hotsite }}
+
+{{ hotsite_breadcrumbs = page_data.breadcrumbs }}
+
+{{~ for hotsite_breadcrumb in hotsite_breadcrumbs ~}}
+    {{~ if for.last ~}}
+        {{ page_title = hotsite_breadcrumb.text }}
+        {{ page_slug = hotsite_breadcrumb.link }}
+    {{ end }}
+{{~ end ~}}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+    <head>
+        {{ hotsite_structured_data hotsite: page_data base_url: store.urls.base current_url: store.urls.current }}
+        {{ head page: page_type title: page_title data: page_data store: store }}
+    </head>
+
+    <body class="page-{{ page_type }} hotsite{{ page_slug | string.replace '/' '-' }} hotsite-texto">
+        
+        {{ header store: store common: common page_data: page_data }}
+        
+        <div class="page-content">
+            
+            <div class="container">
+
+                {{ hotsite_title title: page_title }}
+
+                {{ content position: "Topo" contents: page_data.contents title: page_title }}
+                {{ content position: "Centro" contents: page_data.contents title: page_title }}
+                
+                <div id="wishlist-body" class="wishlist-body">            
+                    <h3>Carregando...</h3>
+                </div>
+
+                {{ content position: "Rodape" contents: page_data.contents title: page_title }}
+
+            </div>
+            
+        </div>
+                
+        {{ footer is_preview: is_preview store: store common: common page_data: page_data }}
+        
+    </body>
+    
+</html>

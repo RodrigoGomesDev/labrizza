@@ -1,0 +1,67 @@
+{{~ ##
+    Description: Renders nav item with links
+    Params:
+        - menus: all the menus from a group
+        - current_menu: the currnt menu being rendered
+        - is_submenu: if this is a menu already inside another one
+    Usage:
+        nav_item menus: menus current_menu: menu
+## ~}}
+
+{{~ 
+    is_submenu = is_submenu ?? false
+    children = menus | group.get current_menu.menu_id
+    link = current_menu.link 
+    
+    if link && !(link | string.starts_with "/") && !(link | string.starts_with "http")
+        link = link | string.prepend "/" 
+    end
+~}}
+
+{{~ if children.size == 0 && !is_submenu ~}}
+    <li class="first-level">
+        <a href="{{ link ? link : '#' }}">
+            {{~ if current_menu.image_url ~}}
+                <img src="https://{{ store.store_name }}.fbitsstatic.net/img/m/{{ current_menu.image_url }}?v={{ store.last_modified }}">
+            {{~ end ~}}
+            {{-current_menu.name-}}
+        </a>
+    </li>
+{{~ else if children.size == 0 && is_submenu ~}}
+    <li>
+        <a href="{{link ? link : '#'}}">
+            {{~ if current_menu.image_url ~}}
+                <img src="https://{{ store.store_name }}.fbitsstatic.net/img/m/{{ current_menu.image_url }}?v={{ store.last_modified }}">
+            {{~ end ~}}
+            {{-current_menu.name-}}
+        </a>
+    </li>
+{{~ else if !is_submenu ~}}
+    <li class="first-level sub">
+        <a {{if link}}href="{{link}}"{{end}}>
+            {{~ if current_menu.image_url ~}}
+                <img src="https://{{ store.store_name }}.fbitsstatic.net/img/m/{{ current_menu.image_url }}?v={{ store.last_modified }}">
+            {{~ end ~}}
+            {{-current_menu.name-}}
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="13.76" height="7.361" viewBox="0 0 13.76 7.361">
+                <path d="M15.054,9.613a.557.557,0,0,1,.783,0,.544.544,0,0,1,0,.775L9.511,16.652a.557.557,0,0,1-.783,0L2.4,10.388a.544.544,0,0,1,0-.775.557.557,0,0,1,.783,0l5.935,5.713,5.935-5.713Z" transform="translate(-2.239 -9.452)" fill="#151414"/>
+            </svg>
+        </a>
+        <div class="sub-list second-level">
+            <ul>
+                {{~ for child in children ~}}
+                    {{ nav_item menus: menus current_menu: child is_submenu: true }}
+                {{~ end ~}}
+            </ul>
+        </div>
+    </li>
+{{~ else ~}}
+    <li class="sub">
+        <a href="{{link ? link : '#'}}">{{-current_menu.name-}}</a>
+        <ul class="sub-list third-level">
+            {{~ for child in children ~}}
+                {{ nav_item menus: menus current_menu: child is_submenu: true }}
+            {{~ end ~}}
+        </ul>
+    </li>
+{{~ end ~}}

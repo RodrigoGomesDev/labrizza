@@ -1,0 +1,13 @@
+{{##
+    Description: Renders the 'buy' and 'add to cart' buttons and calls attribute components.
+    Params:
+        - product: product data
+    Usage:
+        product_attribute product: product
+##}}
+<div class="row">
+    <div class="col-6">
+        {{ product_buy_button add_to_cart_click: "buyListAddToCartClick()" buy_click: "buyListBuyClick()" }}
+    </div>
+</div>
+<br>

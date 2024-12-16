@@ -1,0 +1,33 @@
+{{ ##
+    Description: Renders promotion stamps available for the product. 
+    Params:
+      - product: the product
+    Usage:
+      stamps promotions: product.promotions
+## }}
+
+{{~
+    if product.prices
+        product_discount discount_percentage: product.prices.discount_percentage
+    end 
+}}
+
+{{~ if !stamp_price && promotions ~}}
+    {{~ promotion_image_tags = [] ~}}
+
+    {{~ for promotion in promotions ~}}
+        {{~ if promotion.full_stamp_url ~}}      
+            {{~ promotion_image_tags = promotion_image_tags | array.add promotion.full_stamp_url ~}}
+        {{~ end ~}}
+    {{~ end ~}}
+
+    {{~ if promotion_image_tags != [] ~}}
+        <div class="product-tags">
+            <div class="tag extra">
+                {{~ for promotion_image_tag in promotion_image_tags ~}}
+                    <img src="{{ promotion_image_tag }}">
+                {{~ end ~}}
+            </div>
+        </div>
+    {{~ end ~}}
+{{~ end ~}}

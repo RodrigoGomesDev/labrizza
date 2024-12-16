@@ -1,0 +1,68 @@
+<!-- HEADER -->
+{{header_mail}}
+<!-- END HEADER -->
+
+<!-- MAIN -->
+<table border="0" width="620" cellpadding="0" cellspacing="0" style="width:620px;max-width:620px;border: 30px solid #fff;">
+    <tbody>
+        <tr align="center">
+            <td>
+                <h1 style="font-size: 28px; line-height: 100%;">Salvamos seu carrinho!</h1>
+            </td>
+        </tr>
+        <tr align="center">
+            <td>
+                <p>Olá {{carrinho.usuario.nome}}, Temos uma oferta especial para você!</p><br>
+                <a href="{{configuracao.url_carrinho}}" style="border: none;background: #000;text-transform: uppercase;font-size: 15px;color: #ffffff;padding: 15px;text-decoration: none;">VER CARRINHO</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" width="620" cellpadding="0" cellspacing="0" style="width:620px;max-width:620px;border: 30px solid #fff;">
+    <tbody>
+        <tr align="center">
+            <td>
+                <h2 style="font-size: 28px; line-height: 100%;">Seu carrinho!</h2>
+            </td>                                
+        </tr>
+
+        {{ for produto in carrinho.produto }}
+            <tr>
+                <td>
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td><a target="_blank"><img class="adapt-img" src="{{produto.url_imagem}}" alt style="display: block;" width="110"></td>
+                                <td style="vertical-align: top;">
+                                    <p><strong>{{produto.nome}}</strong></p>
+                                    <p>{{produto.preco_de}}</p>
+                                    <p><strong>{{produto.preco_por}}</strong></p>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                    <p>Quantidade: 1</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        {{ end }}
+
+        <tr>
+            <td style="padding-top: 10px;">
+                <table style="width: 100%;border-top:1px solid #efefef;padding: 4px 0;">
+                    <tbody>
+                        <tr align="right">
+                            <td style="padding: 8px 0;"><h3 style="font-size: 28px; line-height: 100%;">Total:&nbsp;<strong>{{carrinho.valor_total}}</strong></h3></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- END MAIN -->
+
+<!-- FOOTER -->
+{{footer_mail}}
+<!-- END FOOTER -->

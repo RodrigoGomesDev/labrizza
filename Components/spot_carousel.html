@@ -1,0 +1,45 @@
+{{ ##
+    Description: Renders a spot carousel from a list of products
+    Params:
+      - products: list of products
+      - class: the html class for styling
+      - title: text to show on top
+    Usage:
+      spot_carousel products: data...products class:"best-sellers" title:"Mais Vendidos"
+## }}
+
+{{~ if products && products.size > 0 ~}}
+    <div class="container swiper-container">
+
+        <div class="section-header">
+            <h2 class="title-section">
+                {{ title | lang }}
+            </h2>
+        </div>
+
+        <div class="spot-carousel-items" data-slides="{{ settings.theme.options.spot_carousel_quantity ? settings.theme.options.spot_carousel_quantity : 5 }}">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    {{~ for product in products ~}}
+                        <div class="item swiper-slide">
+                            {{ img_priority = for.index >= 4 ? false : true }}
+                            {{ spot product: product img_priority: img_priority img_lazy_load: !img_priority}}
+                        </div>
+                    {{~ end ~}}
+                </div>
+                <div class="swiper-button prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12.125" height="22.666" viewBox="0 0 12.125 22.666">
+                        <path d="M21.109.265a.917.917,0,0,1,1.29,0,.9.9,0,0,1,0,1.277L11.978,11.86a.917.917,0,0,1-1.29,0L.267,1.542a.9.9,0,0,1,0-1.277.917.917,0,0,1,1.29,0l9.776,9.41L21.108.265Z" transform="translate(12.125) rotate(90)" fill="#151414"/>
+                    </svg>
+                </div>
+                <div class="swiper-button next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12.125" height="22.666" viewBox="0 0 12.125 22.666">
+                        <path d="M21.109.265a.917.917,0,0,1,1.29,0,.9.9,0,0,1,0,1.277L11.978,11.86a.917.917,0,0,1-1.29,0L.267,1.542a.9.9,0,0,1,0-1.277.917.917,0,0,1,1.29,0l9.776,9.41L21.108.265Z" transform="translate(0 22.666) rotate(-90)" fill="#151414"/>
+                    </svg>
+                </div> 
+                <div class="dots"></div>
+            </div>
+        </div>
+
+    </div>
+{{~ end ~}}

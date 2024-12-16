@@ -1,0 +1,46 @@
+{{ page_type = 'not-found' }}
+{{ page_title = 'Erro 404' }}
+{{ page_slug = page_type }}
+{{ page_data = [] }}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+    <head>
+        {{ head page: page_type title: page_title data: page_data store: store }}
+    </head>
+    
+    <body class="page-{{ page_type }} hotsite-{{ page_slug }}">
+        
+        {{ header store: store common: common }}
+        
+        <div class="flex flex-col my-4 w-full lg:flex-row lg:justify-center">
+            <div class="flex relative justify-center w-full lg:max-w-[1330px] p-2 lg:p-0">
+                <div class="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+                    <div class="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                        <div class="relative">
+                            <div class="absolute">
+                                <div class="">
+                                    <h1 class="my-2 text-secondary-800 font-bold text-2xl">
+                                        Não encontramos nenhum resultado para esta página
+                                    </h1>
+                                    <p class="my-2 text-secondary-800">Desculpe por isso! Por favor navegue por nossa loja e explore nossos produtos.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                    </div>
+                </div>                
+            </div>
+        </div>
+        
+        {{ footer is_preview: is_preview store: store common: common }}
+        
+    </body>
+    
+</html>

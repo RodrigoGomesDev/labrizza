@@ -1,0 +1,44 @@
+{{~ ##
+    Description: Renders nav item with links
+    Params:
+        - menus: all the menus from a group
+        - current_menu: the currnt menu being rendered
+        - is_submenu: if this is a menu already inside another one
+    Usage:
+        nav_item menus: menus current_menu: menu
+## ~}}
+
+{{~ 
+    is_submenu = is_submenu ?? false
+    children = menus | group.get current_menu.menu_id
+    link = current_menu.link 
+    
+    if link && !(link | string.starts_with "/") && !(link | string.starts_with "http")
+        link = link | string.prepend "/" 
+    end
+~}}
+
+{{ level = level + 1 }}
+
+{{~ if children.size == 0 ~}}
+    <li>
+        <a href="{{ link }}">{{ current_menu.name }}</a>
+    </li>
+{{~ else ~}}
+    <li class="menu-toggle-item-has-subcategories">
+        <a href="javascript: void(0);">
+            {{ current_menu.name }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="12.125" height="22.666" viewBox="0 0 12.125 22.666">
+                <path d="M21.109.265a.917.917,0,0,1,1.29,0,.9.9,0,0,1,0,1.277L11.978,11.86a.917.917,0,0,1-1.29,0L.267,1.542a.9.9,0,0,1,0-1.277.917.917,0,0,1,1.29,0l9.776,9.41L21.108.265Z" transform="translate(0 22.666) rotate(-90)" fill="#151414"></path>
+            </svg>
+        </a>
+        <ul class="menu-toggle-nav-subcategories menu-toggle-level-{{ level }}">
+            <li class="menu-toggle-nav-item-all">
+                <a href="{{ link }}">Tudo em {{ current_menu.name }}</a>
+            </li>
+            {{~ for child in children ~}}
+                {{ menu_toggle_item menus: menus current_menu: child level: level }}
+            {{~ end ~}}
+        </ul>
+    </li>
+{{~ end ~}}

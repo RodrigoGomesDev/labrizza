@@ -1,0 +1,91 @@
+{{ ##
+    Description: Renders navbar with links from menuGroup queryshadow-2xl
+    Params:
+        - menu_groups: menu groups list
+        - position: the menu group position to use
+    Usage:
+        navbar menu_groups: data...menu_group position: "Topo Header"
+## }}
+
+{{~ menu_group = menu_groups | group.by @(do; ret $0.position;end) | group.get position | array.first ~}}
+{{~ menus = menu_group?.menus | group.by @(do; ret $0.parent_menu_id;end) ~}}
+
+{{~ if menu_group ~}}
+    {{~ top_level = menus | group.get null ~}}
+{{~ end ~}}
+
+{{~ count = 0 ~}}
+{{~ limit = settings.theme.options.menu_limit ~}}
+
+{{~ if top_level ~}}
+    <nav class="nav">
+        <ul class="list">
+            {{~ if categories ~}}
+                <li class="first-level first-level-all sub {{ if settings.theme.options.menu_all.status == 1 }} active {{ end ~}}">
+                    <a href="javascript: void(0);" rel="noreferrer noopener" title="Produtos" {{ if settings.theme.options.menu_all.type == 'toggle' }} id="btn-nav-toggle" {{ end ~}}>
+                        <svg id="Grupo_65" class="bars" data-name="Grupo 65" xmlns="http://www.w3.org/2000/svg" width="25.451" height="18" viewBox="0 0 25.451 18">
+                            <path id="Caminho_123" data-name="Caminho 123" d="M1.091,55.951H24.36a1.059,1.059,0,1,0,0-2.118H1.091a1.059,1.059,0,1,0,0,2.118Z" transform="translate(0 -53.833)" fill="#fff"/>
+                            <path id="Caminho_124" data-name="Caminho 124" d="M1.091,183.451H24.36a1.059,1.059,0,1,0,0-2.118H1.091a1.059,1.059,0,1,0,0,2.118Z" transform="translate(0 -173.392)" fill="#fff"/>
+                            <path id="Caminho_125" data-name="Caminho 125" d="M1.091,310.951H24.36a1.059,1.059,0,1,0,0-2.118H1.091a1.059,1.059,0,1,0,0,2.118Z" transform="translate(0 -292.951)" fill="#fff"/>
+                        </svg>
+                        PRODUTOS
+                    </a>
+                    {{~ if settings.theme.options.menu_all.type == 'dropdown' ~}}
+                        <div class="sub-list second-level">
+                            <ul>
+                                {{~ for category in categories.nodes ~}}
+                                    {{~ if category.parent_category_id == 0 ~}}
+                                        {{~ if category.children == [] ~}}
+                                            <li>
+                                                <a href="{{ category.hotsite_url }}">{{ category.name }}</a>
+                                            </li>
+                                        {{~ else ~}}
+                                            <li>
+                                                <a href="{{ category.hotsite_url }}">{{ category.name }}</a>
+                                                <ul class="sub-list third-level">
+                                                    {{~ for subcategory in categories.nodes ~}}
+                                                        {{~ if subcategory.parent_category_id == category.category_id ~}}
+                                                            <li>
+                                                                <a href="{{ subcategory.hotsite_url }}">{{ subcategory.name }}</a>
+                                                            </li>
+                                                        {{~ end ~}}
+                                                    {{~ end ~}}
+                                                </ul>
+                                            </li>
+                                        {{~ end ~}}
+                                    {{~ end ~}}
+                                {{~ end ~}}
+                            </ul>
+                        </div>
+                    {{~ end ~}}
+                </li>
+            {{~ end ~}}
+        </ul>
+    </nav>
+{{~ end ~}}
+
+<div id="menu-toggle" class="toggle-sidebar toggle-sidebar-close">
+    
+    <div class="toggle-sidebar-content menu-toggle-container">
+        
+        <div class="toggle-sidebar-header">
+            <div class="menu-toggle-header">
+                {{ user_login_sidebar checkout_url: store.urls.checkout }}
+            </div>
+            <a href="javascript: void(0);" rel="noreferrer noopener" class="toggle-sidebar-close">
+                <svg class="toggle-sidebar-close" xmlns="http://www.w3.org/2000/svg" width="14.964" height="14.964" viewBox="0 0 14.964 14.964">
+                    <path class="toggle-sidebar-close" d="M6.225,4.811A1,1,0,0,0,4.811,6.225L10.586,12,4.811,17.775a1,1,0,0,0,1.414,1.414L12,13.414l5.775,5.775a1,1,0,0,0,1.414-1.414L13.414,12l5.775-5.775a1,1,0,0,0-1.414-1.414L12,10.586Z" transform="translate(-4.518 -4.518)"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="toggle-sidebar-container">
+            <ul class="menu-toggle-nav-categories">
+                {{~ for top_menu in top_level ~}}
+                    {{ menu_toggle_item menus: menus current_menu: top_menu level: 0 }}
+                {{~ end ~}}
+            </ul>
+        </div>
+    </div>
+
+</div>

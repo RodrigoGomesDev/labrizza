@@ -1,0 +1,260 @@
+﻿[
+  {
+    "type": "AgradecimentoNews",
+    "path": "news_thank.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AlertaValor",
+    "path": "alert_value.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AlertaValorConfirmacao",
+    "path": "alert_value_confirmation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "Aniversariante",
+    "path": "birthday.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AssinaturaEntregue",
+    "path": "Subscriptions/subscription_delivered.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AssinaturaEnviada",
+    "path": "Subscriptions/subscription_sent.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AssinaturaPaga",
+    "path": "Subscriptions/subscription_paid.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "AviseMe",
+    "path": "warn_me.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "BoasVindas",
+    "path": "welcome.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "CancelamentoAssinatura",
+    "path": "Subscriptions/subscription_canceled.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "CarrinhoAbandonadoNovoCheckout",
+    "path": "abandoned_cart.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "CartaoNegado",
+    "path": "card_denied.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ClienteRevendedorHabilitado",
+    "path": "reseller_authorized.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ConfirmacaoAssinatura",
+    "path": "Subscriptions/subscription_confirmed.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ConfirmacaoCadastro",
+    "path": "register_confirmation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ConfirmacaoCadastroAutomatico",
+    "path": "auto_register_confirmation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ConfirmacaoPedido",
+    "path": "Orders/order_confirmed.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "Contraproposta",
+    "path": "counter_offer_confirmation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ContrapropostaAteracao",
+    "path": "counter_offer.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "DoubleOptIn",
+    "path": "opt_in.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "EmailGenerico",
+    "path": "",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "Encomendado",
+    "path": "Orders/order_ordered.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ExpiracaoBoleto",
+    "path": "boleto_expired.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "IndicacaoAmigo",
+    "path": "friend_recommendation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "LembreteBoleto",
+    "path": "boleto_reminder.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "LembreteSenha",
+    "path": "new_password.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "ListaCompraIndiqueAmigo",
+    "path": "shopping_list_friend_recommendation.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PagamentoNegado",
+    "path": "payment_denied.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoCancelado",
+    "path": "Orders/order_canceled.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoConfirmadoRetiradaLoja",
+    "path": "Orders/order_confirmed_pick_up.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoDevolvido",
+    "path": "Orders/order_returned.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoDevolvidoCredito",
+    "path": "Orders/order_product_return.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoDocumento",
+    "path": "documents.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoEntregue",
+    "path": "Orders/order_delivered.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoEnviado",
+    "path": "Orders/order_sent.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoFaturadoRetiradaLoja",
+    "path": "Orders/order_invoice_pick_up.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoPago",
+    "path": "Orders/order_paid.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoPagoRetiradaLoja",
+    "path": "Orders/order_paid_pick_up.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "PedidoPreparadoEnvio",
+    "path": "Orders/order_invoice.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "Recebido",
+    "path": "Orders/order_received.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "RecuperacaoSenhaNovoCheckout",
+    "path": "new_password_new_checkout.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "RetirarNaLoja",
+    "path": "pick_up_in_store.html",
+    "production": true,
+    "active": true
+  },
+  {
+    "type": "Separado",
+    "path": "Orders/order_prepared.html",
+    "production": true,
+    "active": true
+  }
+]

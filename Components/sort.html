@@ -1,0 +1,14 @@
+{{ ##
+    Description: Renders a dropdown list to select the sorting
+                 type of the products on the spot list
+## }}
+
+<div class="sort">
+    {{~ sort_options = settings.sort.options ~}}
+    <select name="sort_options" id="sort_options" class="sort-options" onChange="sortResult(this.value);">
+        <option value="" selected disabled hidden>{{ "Ordenar por" | lang }}</option>
+        {{~ for option in sort_options ~}}
+            <option value="{{option.setting.key}}:{{option.setting.direction}}">{{option.name}}</option>
+        {{~ end ~}}
+    </select>
+</div>

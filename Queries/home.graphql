@@ -1,0 +1,136 @@
+query Home($partnerAccessToken: String) {
+  hotsite(url: "", partnerAccessToken: $partnerAccessToken) {
+    banners {
+      altText
+      bannerName
+      bannerUrl
+      position
+      urlOnClick
+      openNewTab
+      height
+      title
+      width
+      order
+    }
+    contents {
+      content
+      height
+      title
+      width
+      position
+    }
+    seo {
+      content
+      name
+      type
+      httpEquiv
+      scheme
+    }
+  }
+  lancamentos: search(query: "", partnerAccessToken: $partnerAccessToken) {
+    ...lancamentos
+  }
+  maisVendidos: search(query: "", partnerAccessToken: $partnerAccessToken) {
+    ...maisVendidos
+  }
+  brands(first: 10) {
+    ...brands
+  }
+  newsletterInformationGroupFields {
+    displayType
+    fieldName
+    id
+    order
+    required
+    values {
+      order
+      value
+    }
+  }
+
+  shop {
+    name
+    mainUrl
+  }
+}
+
+fragment lancamentos on Search {
+  products(first: 9, sortKey: RELEASE_DATE, sortDirection: DESC) {
+    ...productsCon
+  }
+}
+
+fragment maisVendidos on Search {
+  products(first: 9, sortKey: SALES, sortDirection: DESC) {
+    ...productsCon
+  }
+}
+
+fragment productsCon on ProductsConnection {
+  nodes {
+    id
+    productId
+    productName
+    productVariantId
+    alias
+    freeShipping
+    averageRating
+    newRelease
+    similarProducts {
+      alias
+      image
+      name
+      imageUrl(w: 50, h: 50)
+    }
+    images(width: 346, height: 520) {
+      url
+      print
+    }
+    available
+    prices {
+      listPrice
+      price
+      discountPercentage
+      installmentPlans {
+        displayName
+        name
+        installments {
+          discount
+          fees
+          number
+          value
+        }
+      }
+      bestInstallment {
+        name
+        displayName
+        discount
+        fees
+        number
+        value
+      }
+    }
+    promotions {
+      content
+      id
+      stamp
+      fullStampUrl
+      title
+      disclosureType
+    }
+    addToCartFromSpot
+    productCategories {
+      name
+    }
+  }
+}
+
+fragment brands on BrandsConnection {
+  nodes {
+    active
+    urlLogo
+    alias
+    fullUrlLogo(width: 100)
+    name
+  }
+}

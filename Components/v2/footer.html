@@ -1,0 +1,184 @@
+{{~ if page_data.banners ~}}
+    {{ banners_carousel id: "banners-rodape" banners: page_data.banners position: "Rodape" }}
+{{~ end ~}}
+
+{{ modal }}
+{{ page_scripts position: "BODY_END" scripts: common.scripts }}
+{{ page_scripts position: "FOOTER_START" scripts: common.scripts }}
+
+{{ newsletter information_groups: data.newsletter_information_group_fields }}
+
+<footer class="footer">
+    
+    <div class="cols">
+        
+        <div class="container flex justify-between f-wrap">
+
+            <div class="box">
+                <div class="title">Institucional</div>
+                <div class="overflow">
+                    <ul class="list">
+                        <li><a href="/duvidasfrequentes">Dúvidas frequentes</a></li>
+                        <li><a href="/trocasedevolucoes">Trocas e devoluções</a></li>
+                        <li><a href="/formaspagamento">Formas de pagamento</a></li>
+                        <li><a href="/entrega">Frete de entrega</a></li>
+                        <li><a href="/atendimento">Central de atendimento</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="title">Minha Conta</div>
+                <div class="overflow">
+                    <ul class="list">
+                        <li>
+                            <a href="{{ store.urls.checkout }}login/cadastro" title="Criar Conta">Criar Conta</a>
+                        </li>
+                        <li>
+                            <a href="{{ store.urls.checkout }}MinhaConta/Dados" title="Minha Conta">Minha Conta</a>
+                        </li>
+                        <li>
+                            <a href="{{ store.urls.checkout }}MinhaConta/Pedido" title="Meus Pedidos">Meus Pedidos</a>
+                        </li>
+                        {{~ if settings.theme.options.wishlist ~}}
+                            <li>
+                                <a href="/lista-de-desejos" title="Lista de Desejos">Lista de Desejos</a>
+                            </li>
+                        {{~ end ~}}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box box-infos">
+                <div class="title">Atendimento</div>
+                <div class="overflow">
+                    <ul class="list">
+                        {{~ if settings.email ~}}
+                            <li>
+                                <a href="mailto:{{ settings.email }}" rel="noreferrer noopener" title="Email: {{ settings.email }}">
+                                    {{ settings.email }}
+                                </a>
+                            </li>
+                        {{~ end ~}}
+                        {{~ if settings.phone ~}}
+                            <li>
+                                <a href="tel:{{ settings.phone }}" rel="noreferrer noopener" title="Telefone: {{ settings.phone }}">
+                                    {{ settings.phone }}
+                                </a>
+                            </li>
+                        {{~ end ~}}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="box">
+                
+                {{~ if settings.theme.options.social ~}}
+                    <div class="box-item">
+                        <div class="title">Redes sociais</div>
+                        <div class="overflow footer-social">
+                            {{ social_media }}
+                        </div>
+                    </div>
+                {{~ end ~}}
+                
+                <div class="box-item">
+                    <div class="title">Segurança na compra</div>
+                    <div class="overflow">
+                        <img src="{{- store.urls.static_img}}footer/payment.png?theme={{store.theme}}&v={{store.last_modified}}" alt="payment" class="" loading="lazy">
+                        <ul class="security-seals flex f-wrap">                    
+                            <li class="google-seal">
+                                <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.urls.base }}" target="_blank" rel="noreferrer noopener" title="Google Safe Browsing">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="21.435" viewBox="0 0 17 21.435">
+                                        <path id="locked" d="M4,23.435V11.609H6.217v-3.7A5.913,5.913,0,0,1,12.13,2h.739a5.913,5.913,0,0,1,5.913,5.913v3.7H21V23.435Zm7.941-6.07-.55,3.853h2.217l-.551-3.853a1.478,1.478,0,1,0-1.117,0Zm4.624-9.082a4.065,4.065,0,1,0-8.13,0v3.326h8.13Z" transform="translate(-4 -2)" fill="#151414"/>
+                                    </svg> Loja Segura
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div class="copy">
+        <div class="container">
+            <div class="text">
+                <p>Loja - Direitos Reservados | 2022, CNPJ: 22.222.222/2222-22</p>
+            </div>
+            <ul class="dev">
+                <li>
+                    <span>Desenvolvido por</span>
+                    <a href="https://proexdigital.com.br/" title="Proex Digital" rel="noreferrer noopener" target="_blank">
+                        <img src="{{- store.urls.static_img}}footer/proex-digital.png?theme={{store.theme}}&v={{store.last_modified}}" alt="Proex Digital" loading="lazy">
+                    </a>
+                </li>
+                <li>
+                    <span>Plataforma</span>
+                    <a href="https://wake.tech/" title="Wake" rel="noreferrer noopener" target="_blank">
+                        <img src="{{- store.urls.static_img}}footer/wake.png?theme={{store.theme}}&v={{store.last_modified}}" alt="Wake" loading="lazy">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {{~ if is_preview ~}}
+        <button id="close-preview" class="flex justify-center items-center opacity-70 fixed bottom-0 left-0 w-full p-2 bg-black text-white z-20">Close Preview</button>
+        <script>
+            const fbitsPreviewButton = document.getElementById("close-preview");
+            fbitsPreviewButton.addEventListener("click", () => {
+                document.cookie = 'preview-theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                refreshPage();
+            });
+        </script>
+    {{~ end ~}}
+    {{~ if store.default_template ~}}
+        <div>
+            <button id="close-default-template-button" onclick="closeDefaultTemplate()">Close default template</button>
+        </div>
+        <script>
+            function closeDefaultTemplate(){
+                setCookie('default-template', '', -12);
+                refreshPage();
+            }
+        </script>
+    {{~ end ~}}
+    <script>
+        function setCookie(cname, cvalue, ex_horas) {
+            const d = new Date();
+            d.setTime(d.getTime() + (ex_horas * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function refreshPage(){
+            const newUrl = 
+                window.location.protocol + "//" +
+                window.location.host +
+                window.location.pathname;
+
+            document.location.replace(newUrl);
+        }
+
+        const visitorUuid = '{{ math.uuid }}';
+        document.cookie = "sf_storefront_access_token={{settings.access_token}}; path=/;"
+
+    </script>
+    
+</footer>
+
+{{ sdk_client }}
+
+{{~ if asset_js ~}}
+    {{ asset type: "js" paths: ["components", "navbar", "product", "cart_from_spot", "mini_cart", "user_login", "newsletter", "wishlist", "shipping_quotes", "event_manager", "jquery-3.7.1.min", "swiper.min"] }}
+    {{ asset type: "js" paths: asset_js }}
+    {{ asset type: "js" paths: ["theme"] }}
+{{~ else ~}}
+    {{ asset type: "js" paths: ["components", "navbar", "product", "cart_from_spot", "mini_cart", "user_login", "newsletter", "wishlist", "shipping_quotes", "event_manager", "jquery-3.7.1.min", "swiper.min", "theme"] options: "async" }}
+{{~ end ~}}
+
+{{ page_scripts position: "FOOTER_END" scripts: common.scripts }}       

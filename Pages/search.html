@@ -1,0 +1,104 @@
+{{ page_type = 'search' }}
+{{ page_title = 'Busca' }}
+{{ page_slug = page_type }}
+{{ page_data = data.search }}
+
+{{ hotsite_breadcrumbs = page_data.breadcrumbs }}
+
+{{~ for hotsite_breadcrumb in hotsite_breadcrumbs ~}}
+    {{~ if for.last ~}}
+        {{ page_title = hotsite_breadcrumb.text }}
+        {{ page_slug = hotsite_breadcrumb.link }}
+    {{ end }}
+{{~ end ~}}
+
+{{ products = page_data.products ?? page_data.products_by_offset }}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        {{ search_structured_data search: page_data base_url: store.urls.base current_url: store.urls.current }}
+        {{ head page: page_type title: page_title data: page_data store: store }}
+    </head>
+
+    <body class="page-{{ page_type }} hotsite-{{ page_slug | string.replace '/' '-' }} hotsite-produtos">
+        
+        {{ header store: store common: common page_data: page_data }}
+        
+        <div class="page-content">
+            
+            <div class="container">
+
+                {{ hotsite_title title: page_title breadcrumbs: hotsite_breadcrumbs }}
+                
+                {{~ if products.total_count > 0 ~}}
+                    <div class="hotsite-buttons {{ if settings.theme.options.filter_type == 'toggle' }} active {{ end }}">
+                        {{ sort }}
+                        <button type="button" id="btn-filter-toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                                <path d="M15,2.3c0,1.765-4.735,5.9-5.619,7.663v3.651c0,.01-.006.017-.007.027v.422A.938.938,0,0,1,8.438,15H6.563a.938.938,0,0,1-.937-.937v-.421c0-.01-.007-.017-.007-.028V9.962C4.735,8.2,0,4.065,0,2.3H.014A.432.432,0,0,1,0,2.244C0,1.241,3.36,0,7.5,0S15,1.241,15,2.244a.369.369,0,0,1-.014.055ZM7.58.93C3.946.93.931,1.514.931,2.584S3.946,4.7,7.58,4.7s6.473-1.042,6.473-2.112S11.213.93,7.58.93Z" fill="#151414"></path>
+                            </svg>
+                            Filtrar
+                        </button>
+                    </div>
+                    <div class="hotsite-columns">
+                        {{~ if settings.theme.options.filter_type == 'sidebar' ~}}
+                            <aside class="hotsite-sidebar">
+                                {{ sort }}
+                                {{ filter aggregations: page_data.aggregations }}
+                            </aside>
+                        {{~ end ~}}
+                        <div class="hotsite-spots">
+                            {{ page_size = page_data.page_size }}
+                            <input type="hidden" id="def_page_size" name="def_page_size" value="{{ page_size }}">
+                            {{ spot_list products: products }}
+                            {{ pagination products: products page_size: page_size current_page: current_page }}
+                            <div id="infinity-scroll-content-div"></div>
+                        </div>
+                    </div>
+                {{~ else ~}}
+                    <div class="hotsite-spots-empty">
+                        <p>Nenhum produto encontrado. Você pode pesquisar novamente ou <a href="/">navegar pela nossa loja</a>.</p>
+                    </div>
+                {{~ end ~}}
+
+            </div>
+            
+        </div>
+        
+        {{~ if products.total_count > 0 ~}}
+        
+            <div id="filter-toggle" class="toggle-sidebar toggle-sidebar-close">
+
+                <div class="toggle-sidebar-content menu-toggle-container">
+
+                    <div class="toggle-sidebar-header">
+                        <h3>Filtrar por</h3>
+                        <a href="javascript: void(0);" rel="noreferrer noopener" class="toggle-sidebar-close">
+                            <svg class="toggle-sidebar-close" xmlns="http://www.w3.org/2000/svg" width="14.964" height="14.964" viewBox="0 0 14.964 14.964">
+                                <path class="toggle-sidebar-close" d="M6.225,4.811A1,1,0,0,0,4.811,6.225L10.586,12,4.811,17.775a1,1,0,0,0,1.414,1.414L12,13.414l5.775,5.775a1,1,0,0,0,1.414-1.414L13.414,12l5.775-5.775a1,1,0,0,0-1.414-1.414L12,10.586Z" transform="translate(-4.518 -4.518)"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="toggle-sidebar-container">
+
+                        {{ filter aggregations: page_data.aggregations }}
+
+                    </div>
+
+                </div>
+
+            </div>
+        
+        {{~ end ~}}
+        
+        {{ data_layer_search_view products: products }}
+        {{ search_record_data search_data: page_data current_page: current_page }}
+        {{ footer is_preview: is_preview store: store common: common page_data: page_data }}
+        {{ asset type: "js" paths: ["search", "sort", "filter", "pagination", "products_per_page"] }}
+        
+    </body>
+    
+</html>

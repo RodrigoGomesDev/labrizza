@@ -1,0 +1,8 @@
+<div class="product-shipping">
+    <label for="shipping-quote-cep">Calcular frete</label>
+    <form onsubmit='{{ on_submit_click }}'>
+        <input type="text" id="shipping-quote-cep" name="shipping-quote-cep" placeholder="00000-000" maxlength="9" onkeypress="cepMask(this)">
+        <button type="submit" class="btn btn-2">Calcular</button>
+    </form>
+    <div id="shipping-quotes-snippet-div"></div>
+</div>

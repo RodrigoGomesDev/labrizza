@@ -1,0 +1,24 @@
+{{ ##
+    Description: Renders a list of spots depending on the type of pagination
+                 returned on the query response (by cursor or by offset)
+    Params:
+      - products: the products list
+    Usage:
+        spot_list products: data...products
+## }}
+
+{{~ if products?.items # offset pagination case ~}}
+    <div class="spot-list">    
+        {{ for item in products?.items }}
+            {{ spot product: item }}
+        {{ end }}
+    </div>
+{{~ else if products?.edges && !products.edges.empty? # cursor pagination case ~}}
+    <div class="spot-list">
+        {{ for productEdge in products?.edges }}
+            {{ spot product: productEdge.node }}
+        {{ end }}
+    </div>
+{{~ else ~}}
+    <h2>Nenhum produto encontrado</h2>
+{{~ end ~}}

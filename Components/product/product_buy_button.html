@@ -1,0 +1,5 @@
+{{~ if text && text != '' ~}}
+    <button add-to-cart-button type="button" class="btn btn-cart{{ if disabled }} disabled{{ end }}" value="{{ btn_value }}" onclick="{{ add_to_cart_click }}">{{ text }}</button>
+{{~ else ~}}
+    <button add-to-cart-button type="button" class="btn btn-cart{{ if disabled }} disabled{{ end }}" value="{{ btn_value }}" onclick="{{ add_to_cart_click }}">Comprar</button>
+{{~ end ~}}

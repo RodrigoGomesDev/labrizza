@@ -1,0 +1,43 @@
+query Common($url: String!, $scriptPageTypes: [ScriptPageType!], $partnerAccessToken: String) {
+  menuGroups(url:$url, partnerAccessToken: $partnerAccessToken) {
+    menuGroupId
+    position
+    menus {
+      menuId
+      parentMenuId
+      name
+      cssClass
+      link
+      imageUrl
+      order
+    }  
+  }
+  scripts(url:$url, pageType:$scriptPageTypes) {
+  	name
+    pageType
+    position
+    priority
+    content
+  }
+  gtm_id: shopSettings(settingNames: "GoogleTagManagerId") {
+    name
+    value
+  }
+  gtag_id: shopSettings(settingNames: "Google-Analytics-Ids") {
+    name
+    value
+  }
+  categories(first: 50) {
+      nodes {
+          categoryId
+          parentCategoryId
+          name
+          hotsiteUrl
+          children {
+            categoryId
+            name
+            hotsiteUrl
+          }
+      }
+  }
+}

@@ -1,0 +1,50 @@
+{{ ##
+    Description: Renders the spot image
+    Params:
+        - product: single product data
+    Usage:
+        spot_image product: product
+## }}
+
+{{~ if product.images.size > 0 ~}}
+    {{~ image_url = product.images[0].url ~}}
+    {{~ for image in product.images offset:1 ~}}
+        {{~ if !image.print ~}}
+            {{~ second_image = image.url ~}}
+            {{~ break ~}}
+        {{~ end ~}}
+    {{~ end ~}}
+{{~ else ~}}
+    {{~ image_url = "https://" + store.store_name + ".fbitsstatic.net/img/p/produto-nao-possui-foto-no-momento/sem-foto.jpg?w=250&h=250&v=20220125251131&qs=ignore" ~}}
+{{~ end ~}}
+{{~
+    if priority == true
+        priority_tag = "fetchpriority=\"high\""
+    end
+
+    if lazy == true
+        lazy_tag = "loading=\"lazy\""
+    end
+~}}
+
+<div spot-container class="image">
+    
+    <img src="{{ image_url }}" alt="{{ product.product_name }}" {{priority_tag}} {{lazy_tag}}>
+
+    {{~ if second_image ~}}
+        <div class="image-hover">
+            <img src="{{ second_image }}" alt="{{ product.product_name }}" {{priority_tag}} {{lazy_tag}}>
+        </div>
+    {{~ end ~}}
+
+    {{~
+        if product.promotions
+            promotionsTypes = product.promotions | group.by @(do; ret $0.disclosure_type;end)
+            promotionsSpot = promotionsTypes | group.get "Spot"
+            promotionsNull = promotionsTypes | group.get null
+            promotionsGrouped = promotionsSpot | array.add_range promotionsNull
+            stamps promotions: promotionsGrouped product: product
+        end
+    ~}}
+
+</div>

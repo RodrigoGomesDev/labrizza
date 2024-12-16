@@ -1,0 +1,54 @@
+{{ page_type = 'product' }}
+{{ page_title = data.product.product_name }}
+{{ page_slug = page_type }}
+{{ page_data = data.product }}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+    <head>
+        {{ product_structured_data product: page_data current_url: store.urls.current }}
+        {{ head page: page_type title: page_title data: page_data store: store }}
+    </head>
+    
+    <body class="page-{{ page_type }}">
+        
+        {{ header store: store common: common page_data: page_data }}
+        
+        {{~ product = page_data ~}}
+        
+        <div class="page-content">
+        
+            <input type="hidden" id="product-id" name="product-id" value="{{ page_data.product_id }}">
+            <input type="hidden" id="product-variant-id" name="product-variant-id" value="{{ page_data.product_variant_id }}">
+
+            <div class="container">
+                <div class="product-container">
+                    {{~ breadcrumb breadcrumbs: product.breadcrumbs ~}}
+                    <div product-view-row>
+                        <div product-view-div id="product-view-div-{{ product.product_id }}">
+                            {{ product_view product: product }}
+                        </div>
+                    </div>
+                    {{ buy_together product: product }}
+                    {{ product_information informations: product.informations }}
+                    {{ product_datasheet product: product }}
+                    {{ product_reviews reviews: product.reviews product_name: product.product_name }}
+                </div>
+            </div>
+            
+            {{~ if data.product_recommendations.size > 0 ~}}
+                <div class="product-recommendations spot-carousel">
+                    {{ spot_carousel products: data.product_recommendations class:"recommendations" title:"Produtos relacionados" }}
+                </div>
+            {{~ end ~}}
+            
+        </div>
+        
+        {{ data_layer_product_view product: page_data }}
+        {{ asset type: "js" paths: ["product_review", "buy_together", "shipping_quotes"] options:"async"}} 
+        {{ footer is_preview: is_preview store: store common: common page_data: page_data asset_js: ["zoom", "jquery.mask.min"] }}
+        
+    </body>
+    
+</html>

@@ -1,0 +1,11 @@
+{{~ if discount_percentage ~}}
+    {{~ if discount_percentage > 0 ~}}
+        <div class="product-tags-circle">
+            <div class="tag-circle discount">
+                <span class="discount-value">
+                    -{{ discount_percentage | math.format "p0" "pt-BR" }} OFF
+                </span>
+            </div>
+        </div>
+    {{~ end ~}}
+{{~ end ~}}
