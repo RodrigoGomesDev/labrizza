@@ -9,6 +9,7 @@
     <head>
         {{ home_structured_data site_name: data.shop.name current_url: data.shop.main_url }}
         {{ head page: page_type title: page_title data: page_data store: store }}
+        
     </head>
     
     <body class="page-{{ page_type }} hotsite-{{ page_slug }}">
@@ -28,8 +29,53 @@
         {{ banner_line id: "banner-line" banners: page_data.banners position: "Filtros Bottom" }}
         
         <div class="spot-carousel spot-carousel-snippet" data-sort="DISCOUNT" data-direction="DESC" data-hotsite="" data-title="Sale %"></div>
-                
-        {{ data_layer_hotsite_view product_lists: [data.lancamentos.products.nodes, data.mais_vendidos.products.nodes] }}
+               
+        <div class="about-us">
+            <div class="about-us-image">
+                Imagem
+            </div>
+            <div class="about-us-content">
+                <div class="subtitle">
+                    Sobre Nós
+                </div>
+                <div class="title">
+                    A LA’BRIZZA
+                </div>
+                <div class="text">
+                    <p>A LA’BRIZZA apresenta sua linha de produtos de alto nível. Somos uma marca brasileira inspirada em padrões e tendências internacionais.</p>
+                    <p> Todos os nossos produtos são desenvolvidos com total respeito às pessoas, animais e normas de controles de preservação do meio ambiente, com embalagens exclusivas, práticas e seguras.</p>
+                    <p>A união de profissionais altamente qualificados e preparados para acompanhar o desenvolvimento e os testes de qualidade, garantem a eficácia e a segurança em todas as aplicações.</p>
+                    <p>O nosso valor apoia-se em diferenciais competitivos que unem inovação, ousadia e respeito.</p>
+                    <p>LA’BRIZZA, uma incrível experiência em se sentir confiante.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <div class="newsletter-content">
+                <div class="subtitle">
+                    Newsletter
+                </div>
+                <div class="title">
+                    RECEBA NOVIDADES
+                </div>
+            </div>
+            <div class="newsletter-form">
+                <div class="newsletter-input-name">
+                    <label for="name">Nome completo</label>
+                    <input name="name" placeholder="Nome Completo" type="text">
+                </div>
+                <div class="newsletter-input-email">
+                    <label for="email">E-mail</label>
+                    <input name="email" placeholder="E-mail" type="text">
+                </div>
+                <div>
+                    <div></div>
+                    <button class="newsletter-button">Enviar</button>
+                </div>
+            </div>
+        </div>
+
         {{ footer is_preview: is_preview store: store common: common page_data: page_data }}        
         
     </body>
