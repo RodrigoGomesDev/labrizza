@@ -931,7 +931,6 @@
 }
 
 .banners-carousel .swiper-container .swiper-slide .swiper-image {
-  background-color: red;
   height: 100%;
   width: 100vw;
 }
@@ -954,7 +953,73 @@
   /* width: calc(50% - 10px); */
   min-height: 412px !important;
   flex: 0 0 auto;
-  background-color: red;
+}
+
+/* BANNER WOMEN */
+
+.banner-woman {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+  background-color: #929292;
+}
+
+/* EMPHASIS */
+.emphasis {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emphasis .emphasis-title {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Philosopher';
+  text-transform: uppercase;
+  letter-spacing: 5.1px;
+  margin-bottom: 30px;
+}
+
+.emphasis .emphasis-products {
+  display: flex;
+  gap: 10px
+}
+
+.emphasis .emphasis-products .product .image {
+  height: 300px;
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #929292;
+  color: white;
+}
+
+.emphasis .emphasis-products .product .title {
+  background-color: #000;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-family: 'Philosopher';
+  text-align: center;
+  padding: 10px 0;
+}
+
+.emphasis .emphasis-products .product .subtitle {
+  background-color: #fff;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 3px;
+  font-family: 'Philosopher';
+  text-align: center;
+  padding: 10px 0;
 }
 
 /* FOOTER */
@@ -962,7 +1027,7 @@
 .footer {
   background-color: var(--color_footer_background);
   color: var(--color_footer_text);
-  margin-top: 30px;
+  margin-top: 70px;
 }
 
 .footer .footer-main .social-media a {
