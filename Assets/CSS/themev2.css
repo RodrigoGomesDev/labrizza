@@ -573,10 +573,17 @@
   fill: var(--color_header_icons);
 }
 
+.toggle-sidebar.open-content .toggle-sidebar-content {
+  background-color: var( --color_offerbar_background);
+  font-family: var(--font_family);
+  color: var(--color_general_text_background);
+}
+
 .menu-toggle-header {
   height: 41px;
   display: flex;
   align-items: center;
+  color: var(--color_general_text_background);
 }
 
 .menu-toggle-header .account {
@@ -591,6 +598,7 @@
 
 .menu-toggle-header .account a {
   font-size: 14px;
+  color: var(--color_general_text_background);
 }
 
 .menu-toggle-nav-categories {
@@ -602,7 +610,6 @@
   padding-top: 25px;
   position: relative;
 }
-
 .menu-toggle-nav-categories::before {
   content: " ";
   position: absolute;
@@ -610,7 +617,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: var(--color_footer_text);
+  background-color: var(--color_general_text_background);
   opacity: 0.2;
 }
 
@@ -652,8 +659,26 @@
 .menu-toggle-container.open-subcategories .menu-toggle-nav-categories {
   height: calc(100% - 122px);
 }
+.menu-toggle-item-has-subcategories {
+  display: flex;
+  flex-direction: row;
+}
 
-.menu-toggle-item-has-subcategories.open > a {
+.menu-toggle-item-has-subcategories .menu-toggle-item-has-subcategories-img {
+  width: 107px;
+  height: 107px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 20px;
+}
+
+.menu-toggle-item-has-subcategories-text {
+  color: var(--color_general_text_background);
+  line-height: normal;
+  font-family: var(--font_family);
+  font-size: 18px;
+}
+.menu-toggle-item-has-subcategories.open a {
   display: none;
 }
 
@@ -1526,10 +1551,11 @@
   /* max-width: calc(100% - 310px); */
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center !important;
+  align-items: center !important;
   gap: 100px;
-  margin: 0 50px;
+
 }
 
 .newsletter .newsletter-content {
@@ -1593,6 +1619,7 @@
 
   .newsletter {
     gap: 20px;
+    margin: 10px;
   }
 
   .newsletter .newsletter-form {
@@ -1627,3 +1654,25 @@
     justify-content: center;
   }
 }
+
+/* .section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-header .title-section {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color_sections_title);
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.section-header .subtitle-section {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color_sections_title);
+} */

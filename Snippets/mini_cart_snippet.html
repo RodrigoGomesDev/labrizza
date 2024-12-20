@@ -51,14 +51,9 @@
                                 <p>{{ custom.name }}: {{ custom.value }} ({{ custom.cost | math.format "c" "pt-BR" }})</p>
                             {{~ end ~}}
                         {{~ end ~}}
-                        <span>{{ product.price | math.format "c" "pt-BR" }}</span>
-                    </div>
-                    <div class="cart-sidebar-product-remove">
-                        <a href="javascript: void(0);" onclick="removeProductFromCart('{{ product.product_variant_id }}','{{ product.quantity }}', '{{ customization_id }}')" rel="noreferrer noopener">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19"><path d="M17,5V4a2,2,0,0,0-2-2H9A2,2,0,0,0,7,4V5H4A1,1,0,0,0,4,7H5V18a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V7h1a1,1,0,0,0,0-2ZM15,4H9V5h6Zm2,3H7V18a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1Z" transform="translate(-3 -2)" fill-rule="evenodd"/><path d="M9,9h2v8H9Z" transform="translate(-3 -2)"/><path d="M13,9h2v8H13Z" transform="translate(-3 -2)"/></svg>
-                        </a>
-                    </div>
-                    <div class="cart-sidebar-product-quantity">
+
+                        <div class="cart-sidebar-container-price-quantity">
+                            <div class="cart-sidebar-product-quantity">
                         <div>
                             {{~ if item_price != 'R$ 0,00' ~}}
                                 <button onclick="miniCartSubtractQuantity('{{ product.product_variant_id }}', '{{ customization_id }}')">
@@ -86,7 +81,17 @@
                                 {{~ end ~}}
                             </a>
                         {{~ end ~}}
+                        </div>
+                        <span>{{ product.price | math.format "c" "pt-BR" }}</span>
+                        </div>
+                        
                     </div>
+                    <div class="cart-sidebar-product-remove">
+                        <a href="javascript: void(0);" onclick="removeProductFromCart('{{ product.product_variant_id }}','{{ product.quantity }}', '{{ customization_id }}')" rel="noreferrer noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19"><path d="M17,5V4a2,2,0,0,0-2-2H9A2,2,0,0,0,7,4V5H4A1,1,0,0,0,4,7H5V18a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V7h1a1,1,0,0,0,0-2ZM15,4H9V5h6Zm2,3H7V18a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1Z" transform="translate(-3 -2)" fill-rule="evenodd"/><path d="M9,9h2v8H9Z" transform="translate(-3 -2)"/><path d="M13,9h2v8H13Z" transform="translate(-3 -2)"/></svg>
+                        </a>
+                    </div>
+                    
                 </li>
             {{~ end ~}}
         </ul>
@@ -95,11 +100,16 @@
             <p>
                 <strong>Subtotal</strong>
                 <span>{{ subtotal | math.format "c" "pt-BR" }}</span>
-                <small>Frete e impostos calculados na finalização da compra.</small>
             </p>
+                
+            <div class="cart-sidebar-footer-container-frete">       
+                <div class="cart-sidebar-footer-loading"> </div>
+                <small><span>Faltam R$999,99</span> para ganhar frete grátis.</small>
+            </div>
+
             <div class="cart-sidebar-footer-buttons">
-                <a href="{{ checkoutUrl }}" class="btn btn-cart">Finalizar Compra</a>
-                <button type="button" class="btn btn-2" onclick="setCartDivVisibility()">Continuar comprando</button>
+                <a href="{{ checkoutUrl }}" class="btn btn-cart">Avançar</a>
+                {{## <button type="button" class="btn btn-2" onclick="setCartDivVisibility()">Continuar comprando</button> ##}}
             </div>
         </div>
 

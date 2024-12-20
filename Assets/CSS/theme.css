@@ -244,8 +244,13 @@ body *::-webkit-scrollbar-thumb {
     margin: auto
 }
 
+.toggle-sidebar.open-content .toggle-sidebar-content {
+    background-color: var( --color_offerbar_background);
+    font-family: var(--font_family);
+    color: var(--color_general_text_background);
+}
 .swiper-button.prev,.swiper-carousel .prev,.swiper-container .prev,.toggle-sidebar.open-content .toggle-sidebar-content {
-    left: 0
+    left: 0;
 }
 
 .swiper-button.next,.swiper-carousel .next,.swiper-container .next {
@@ -480,6 +485,8 @@ body *::-webkit-scrollbar-thumb {
     font-weight: 500;
 }
 
+/* atualizando */
+
 .toggle-sidebar {
     position: fixed;
     display: none;
@@ -578,6 +585,7 @@ body *::-webkit-scrollbar-thumb {
 
 .toggle-sidebar-container {
     height: 100%;
+    color: var(----color_general_text_background);
 }
 
 .toggle-sidebar *::-webkit-scrollbar {
@@ -592,6 +600,7 @@ body *::-webkit-scrollbar-thumb {
     background-color: var(--color_general_text);
 }
 
+/* atualizando aqui 20/12 */
 .cart-sidebar-content {
     height: 100%;
 }
@@ -666,25 +675,34 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .cart-sidebar .cart-sidebar-content ul li .cart-sidebar-product-remove {
-    align-items: center;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    
+    margin-top: 50px;
 }
 
 .cart-sidebar .cart-sidebar-content ul li .cart-sidebar-product-remove svg, .cart-sidebar .cart-sidebar-content ul li .cart-sidebar-product-remove svg * {
-    fill: var(--color_general_text);
+    fill: var(--color_buttons_cart_text_input);
 }
 
-.cart-sidebar-product-quantity {
-    width: 100%;
+.cart-sidebar-container-price-quantity {
+    display: flex;
+    flex-direction: row;
+   
+    align-items: center;
+}
+.cart-sidebar-container-price-quantity .cart-sidebar-product-quantity {
+    width: 50%;
     margin-top: 15px;
 }
 
 .cart-sidebar-product-quantity > div {
-    width: 80px;
+    width: 123px;
     align-items: center;
     display: flex;
-    border-bottom: 1px solid var(--color_general_text);
+    background-color:  var( --color_buttons_cart_background_input);
+    padding: 0 10px;
+    opacity: 1;
 }
 
 .cart-sidebar-product-quantity > div button {
@@ -694,7 +712,7 @@ body *::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color_general_text);
+    color: var(--color_buttons_cart_text_input);
 }
 
 .cart-sidebar-product-quantity > div button:first-child {
@@ -724,13 +742,38 @@ body *::-webkit-scrollbar-thumb {
     margin: 0;
 }
 
-.cart-sidebar-footer p small {
+.cart-sidebar-footer p {
     text-transform: none;
+    font-size: 15px;
+    font-family: var(--font_family);
     margin-top: 8px;
-    font-size: 13px;
-    line-height: 18px;
+    letter-spacing: 0px;
+    color: #000000;
+    text-transform: uppercase;
 }
 
+.cart-sidebar-footer-container-frete {
+    margin: 30px 0  ;
+}
+.cart-sidebar-footer-container-frete .cart-sidebar-footer-loading {
+    width: 100%;
+    height: 10px;
+    border-radius: 8px;
+    background-color: var(--color_buttons_cart_text_input);
+}
+
+.cart-sidebar-footer-container-frete span {
+    color: var(--color_buttons_cart_text_input);
+}
+
+.cart-sidebar-footer-container-frete small {
+    font-size: 15px;
+    font-family: var(--font_family);
+    margin-top: 5px;
+    padding: 0;
+    text-align: left;
+    letter-spacing: 0;
+}
 .cart-sidebar-footer-total {
     display: flex;
     align-items: center;
@@ -756,7 +799,6 @@ body *::-webkit-scrollbar-thumb {
     display: flex;
     text-align: center;
     flex-direction: column;
-    gap: 15px;
 }
 
 .cart-sidebar-empty {
@@ -1082,6 +1124,8 @@ body *::-webkit-scrollbar-thumb {
     background-color: var(--color_seals_discount_background);
     color: var(--color_seals_discount_text);
     text-align: center;
+    border-radius: 100%;
+    padding: 14px 7px;
 }
 
 .spot .product-info {
@@ -1373,12 +1417,14 @@ body *::-webkit-scrollbar-thumb {
 .section-header {
     text-align: center;
     margin-bottom: 30px;
+    padding-left: 20px;
 }
 
 .section-header .title-section {
     font-size: 20px;
-    font-weight: 700;
-    text-align: center;
+    font-family: "Philosopher";
+    font-weight: 500;
+    text-align: left;
     color: var(--color_sections_title);
     line-height: 24px;
     text-transform: uppercase;
@@ -1386,9 +1432,9 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .section-header .subtitle-section {
-    font-size: 1.125rem;
-    font-weight: 500;
-    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
     color: var(--color_sections_title);
 }
 

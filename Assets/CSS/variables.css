@@ -34,7 +34,7 @@ html {
     --color_products_price: #151414;
     
     /* Seals */
-    --color_seals_discount_background: #ED6161;
+    --color_seals_discount_background: #000000;
     --color_seals_discount_text: #ffffff;
     --color_seals_shipping_background: #151414;
     --color_seals_shipping_text: #ffffff;
@@ -48,6 +48,8 @@ html {
     --color_slides_dots: #524E4E;
     
     /* Buttons */
+    --color_buttons_cart_text_input: #BE9431;
+    --color_buttons_cart_background_input: #F5F8F8;
     --color_buttons_cart_background: #151414;
     --color_buttons_cart_background_hover: #413C3C;
     --color_buttons_cart_border: #151414;
