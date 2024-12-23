@@ -1270,6 +1270,94 @@
         "availableInAllPages": true
     },
     {
+        "name": "banner_woman",
+        "path": "banner_woman.html",
+        "params": [
+            {
+                "name": "altimg",
+                "required": true
+            }
+        ],
+        "inheritVariables": false,
+        "availableInAllPages": true,
+        "availableInAllComponents": true
+    },
+    {
+        "name": "emphasis",
+        "path": "emphasis.html",
+        "params": [
+            {
+                "name": "titleSection",
+                "required": true
+            },
+            {
+                "name": "product_image",
+                "required": false
+            },
+            {
+                "name": "product_title",
+                "required": true
+            },
+            {
+                "name": "product_subtitle",
+                "required": true
+            }
+        ],
+        "inheritVariables": false,
+        "availableInAllPages": true,
+        "availableInAllComponents": true
+    },
+    {
+        "name": "about_us",
+        "path": "about_us.html",
+        "params": [
+            {
+                "name": "about_image",
+                "required": false
+            },
+            {
+                "name": "about_title",
+                "required": false
+            },
+            {
+                "name": "about_subtitle",
+                "required": false
+            },
+            {
+                "name": "about_text",
+                "required": false
+            }
+        ],
+        "inheritVariables": false,
+        "availableInAllPages": true,
+        "availableInAllComponents": true
+    },
+    {
+        "name": "receive_news",
+        "path": "receive_news.html",
+        "params": [
+            {
+                "name": "recive_title",
+                "required": false
+            },
+            {
+                "name": "recive_subtitle",
+                "required": false
+            }
+        ],
+        "inheritVariables": false,
+        "availableInAllPages": true,
+        "availableInAllComponents": true
+    },
+    {
+        "name": "newsletter",
+        "path": "newsletter.html",
+        "params": [],
+        "inheritVariables": false,
+        "availableInAllPages": true,
+        "availableInAllComponents": true
+    },
+    {
         "name": "header_mail",
         "path": "emails/header.html",
         "params": [],

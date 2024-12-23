@@ -574,9 +574,9 @@
 }
 
 .toggle-sidebar.open-content .toggle-sidebar-content {
-  background-color: var( --color_offerbar_background);
+  background-color: var( --color_offerbar_text);
   font-family: var(--font_family);
-  color: var(--color_general_text_background);
+  color: var( --color_general_text);
 }
 
 .menu-toggle-header {
@@ -652,6 +652,10 @@
   background-color: #929292;
 }
 
+.menu-toggle-container {
+  background-color: #000 !important;
+}
+
 .menu-toggle-container.open-subcategories .menu-toggle-nav-top {
   display: none;
 }
@@ -712,8 +716,9 @@
   margin-right: 15px;
 }
 
-.toggle-sidebar .account > div > span {
-  font-weight: bold;
+.toggle-sidebar-close-icon {
+  color: #929292;
+  background-color: #BE9431;
 }
 
 @media (min-width: 992px) {
@@ -1609,6 +1614,19 @@
   letter-spacing: 3.06px;
   padding: 10px 67px;
 }
+
+@media (max-width: 1200px) {
+  .newsletter {
+    padding: 0 20px;
+    gap: 20px;
+  }
+  .newsletter .newsletter-form button {
+    padding: 10px 120px;
+  }
+  .newsletter .newsletter-form input {
+    padding: 18px 130px 18px 20px;
+  }
+
 @media (max-width: 991px) {
 
   .newsletter, .newsletter-form {
