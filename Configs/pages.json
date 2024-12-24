@@ -44,9 +44,9 @@
         "query": "buy_list.graphql"
     },
     {
-        "type": "hotsite",
+        "type": "login",
         "path": "login.html",
-        "query": ""
+        "query": "buy_list.graphql"
     },
     {
         "type": "not_found",

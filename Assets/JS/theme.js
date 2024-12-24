@@ -235,7 +235,15 @@ function deleteCookie(cname) {
                 $('#spot-carousel-snippet-' + spot_carousel_number).addClass('loaded');
                 $('#spot-carousel-snippet-' + spot_carousel_number).html(response);
                 $('#spot-carousel-snippet-' + spot_carousel_number).find('.title-section').text($('#spot-carousel-snippet-' + spot_carousel_number).attr('data-title'));
-                
+
+                //Novo button do carrossel
+               $('#spot-carousel-snippet-' + spot_carousel_number)
+                .find('.spot-carousel-items .item')
+                .each(function (index) {
+                var productButton = `<button class="spot-carrossel-product-button" style="background-color: #BE9431; padding: 9px 40px; color: #fff; font-size: 13px; letter-spacing: 2.21px;  white-space: nowrap;" onclick="handleProductButton(${spot_carousel_number}, ${index})">Adicionar ao carrinho</button>`;
+                $(this).append(productButton);
+        });
+
                 var swiper_slides = parseInt($('#spot-carousel-snippet-' + spot_carousel_number).find('.spot-carousel-items').attr('data-slides'));
                 var swiper_limit_slides = swiper_slides + 1;
 
@@ -250,6 +258,10 @@ function deleteCookie(cname) {
 
                             aux++;
                         }
+                    }
+                    //função para que lida com o button
+                    function handleProductButton(spot_carousel_number, productIndex) {
+                        console.log(`Você clicou no botão do produto ${productIndex + 1} no carrossel número ${spot_carousel_number}`);
                     }
 
                     new Swiper(this, {

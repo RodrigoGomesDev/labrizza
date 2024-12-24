@@ -1128,6 +1128,12 @@ body *::-webkit-scrollbar-thumb {
     padding: 14px 7px;
 }
 
+@media (max-width: 990px) {
+    .spot .product-tags-circle .tag-circle.discount {
+        font-size: 13px;
+    }
+}
+
 .spot .product-info {
     padding: 10px;
 }
@@ -1635,6 +1641,12 @@ body *::-webkit-scrollbar-thumb {
     
     .spot-carousel .spot-carousel-items {
         padding: 0;
+    }
+
+    .spot-carousel .spot-carousel-snippet .spot-carrossel-product-button {
+        /* background-color: var(--color_buttons_cart_text_input); */
+        background-color: green !important;
+        padding: 9px 72px;
     }
     
     .spot .tags {
