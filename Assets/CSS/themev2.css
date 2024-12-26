@@ -1563,12 +1563,24 @@
 .newsletter {
   /* max-width: calc(100% - 310px); */
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center !important;
-  align-items: center !important;
+  padding: 0 500px;
   gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.newsletter .container {
+  width: 100%;
+  max-width: calc(100% - 310px); /* Pode ser ativado se necessário */
+  padding: 0 500px;
+  gap: 100px;
+  display: flex;
+  position: absolute; /* Ou use fixed se quiser que fique fixo na viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
 }
 
 .newsletter .newsletter-content {
@@ -1623,7 +1635,7 @@
   padding: 10px 67px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1445px) {
   .newsletter {
     padding: 0 20px;
     gap: 20px;
@@ -1640,13 +1652,18 @@
 
   .newsletter, .newsletter-form {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    width: 95%;
   }
 
   .newsletter {
     gap: 20px;
-    margin: 10px;
+    padding: 0;
+    margin: 0;
+
+    align-items: center;
+    justify-content: center;
   }
 
   .newsletter .newsletter-form {
@@ -1671,7 +1688,7 @@
   }
 
   .newsletter .newsletter-form button {
-    padding: 10px 133px;
+    padding: 10px 110px;
   }
 
   .newsletter .newsletter-content {
