@@ -1156,6 +1156,45 @@ body *::-webkit-scrollbar-thumb {
     margin-top: 10px;
 }
 
+.spot .spot-carrossel-product-container-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spot .spot-carrossel-product-button {
+    background-color: var(--color_buttons_cart_text_input) !important;
+    color: var( --color_general_text_background) !important;
+    padding: 9px 0;
+    width: 100%;
+    margin: 0 5px;
+    font-size: 13px;
+    font-family: "Philosopher";
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2.21px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.spot-carrossel-product-button::before {
+    content: "Adicionar ao carrinho"; 
+  }
+  
+  @media (max-width: 991px) {
+    .spot .spot-carrossel-product-button {
+        font-size: 10px;
+    }
+    .spot-carrossel-product-button::before {
+      content: "Adicionar";
+    }
+  }
+  
+
+@media (max-width: 991px) {
+
+}
+
 .spot .product-price .product-has-variants {
     font-size: 0.75rem;
 }
@@ -1643,11 +1682,7 @@ body *::-webkit-scrollbar-thumb {
         padding: 0;
     }
 
-    .spot .spot-carrossel-product-button {
-        background-color: var(--color_buttons_cart_text_input) !important;
-        color: var( --color_general_text_background) !important;
-        padding: 9px 72px;
-    }
+ 
     
     .spot .tags {
         display: none;
