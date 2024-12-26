@@ -68,8 +68,8 @@
                         {{ end }}
                     </div>
                 {{ end }}
-                {{~ shipping_on_submit_click = "shippingQuoteSubmit(event, " + selected_variant.product_variant_id + ")" ~}}
-                {{ product_shipping_quotes on_submit_click: shipping_on_submit_click }}
+                <-- {{~ shipping_on_submit_click = "shippingQuoteSubmit(event, " + selected_variant.product_variant_id + ")" ~}}
+                {{ product_shipping_quotes on_submit_click: shipping_on_submit_click }} 
             {{~ end ~}}
         </div>
     </div>

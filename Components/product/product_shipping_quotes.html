@@ -1,8 +1,8 @@
 <div class="product-shipping">
-    <label for="shipping-quote-cep">Calcular frete</label>
+    <label for="shipping-quote-cep">Encontre o vendedor mais próximo de você:</label>
     <form onsubmit='{{ on_submit_click }}'>
-        <input type="text" id="shipping-quote-cep" name="shipping-quote-cep" placeholder="00000-000" maxlength="9" onkeypress="cepMask(this)">
-        <button type="submit" class="btn btn-2">Calcular</button>
+        <input type="text" id="shipping-quote-cep" name="shipping-quote-cep" placeholder="Seu cep" maxlength="9" onkeypress="cepMask(this)">
+        <button type="submit" class="btn btn-2">Procurar</button>
     </form>
     <div id="shipping-quotes-snippet-div"></div>
 </div>

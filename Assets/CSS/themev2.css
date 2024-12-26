@@ -628,6 +628,7 @@
   justify-content: space-between;
   gap: 20px;
   padding-right: 15px;
+  color: var(--color_general_text_background);
 }
 
 .menu-toggle-nav-categories a svg {

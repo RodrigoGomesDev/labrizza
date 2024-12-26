@@ -56,7 +56,7 @@ pre {
 
 a {
     text-decoration: none;
-    color: var(--color_general_text);
+    color: var(--color_general_text_background);
 }
 
 a:not(.btn):not(.link):hover {
@@ -546,7 +546,7 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .toggle-sidebar-header a svg, .toggle-sidebar-header a svg * {
-    fill: var(--color_general_text);
+    fill: var(--color_general_text_background);
 }
 
 .toggle-sidebar-header h3 {
@@ -1643,9 +1643,9 @@ body *::-webkit-scrollbar-thumb {
         padding: 0;
     }
 
-    .spot-carousel .spot-carousel-snippet .spot-carrossel-product-button {
-        /* background-color: var(--color_buttons_cart_text_input); */
-        background-color: green !important;
+    .spot .spot-carrossel-product-button {
+        background-color: var(--color_buttons_cart_text_input) !important;
+        color: var( --color_general_text_background) !important;
         padding: 9px 72px;
     }
     
@@ -3686,14 +3686,14 @@ body *::-webkit-scrollbar-thumb {
 }
 
 #product-prices-div .tag-circle.discount {
-    vertical-align: middle;
     background-color: var(--color_seals_discount_background);
     color: var(--color_seals_discount_text);
     font-size: 13px;
     text-transform: uppercase;
     line-height: 17px;
     font-weight: 500;
-    padding: 3px 8px;
+    padding: 14px 8px;
+    border-radius: 100px 100px;
 }
 
 .product-installments {
@@ -3729,9 +3729,10 @@ body *::-webkit-scrollbar-thumb {
     font-weight: 500;
     line-height: 40px;
     transition: .3s ease-in-out;
-    color: var(--color_buttons_action_2_text);
-    background-color: var(--color_buttons_action_2_background);
-    border: 1px solid var(--color_buttons_action_2_border);
+    /* color: var(--color_buttons_action_2_text); */
+    /* background-color: var(--color_buttons_action_2_background); */
+    border: 1px solid var(--color_buttons_cart_text_input);
+    border-radius: 50px 50px;
     display: block;
 }
 
@@ -3759,7 +3760,6 @@ body *::-webkit-scrollbar-thumb {
 
 .product-attribute label.product-attribute-square.selected {
     box-shadow: 0 0 0 2px var(--color_buttons_action_2_border);
-    border-color: #fff;
 }
 
 .product-quantity {
@@ -3827,37 +3827,55 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .product-shipping {
+    background-color: #f5f8f8;
+    padding: 30px 50px;
     margin-top: 25px;
 }
 
 .product-shipping label {
     display: block;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 16px;
-    margin-bottom: 5px;
+    font-weight: normal;
+    margin-bottom: 20px;
     width: 100%;
-    color: var(--color_general_text_small);
+    color: var(--color_general_text);
+    white-space: nowrap;
 }
 
 .product-shipping form {
     margin: 0 0 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 }
 
 .product-shipping form #shipping-quote-cep {
     width: calc(100% - 125px);
-    height: 30px;
-    padding: 0 10px;
-    font-size: 13px;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+    color: var(--color_general_text);
+    border: 1px solid #C8CBCB;
+    border-right: none;
 }
 
 .product-shipping form .btn {
     width: 110px;
-    height: 30px;
+    height: 50px;
     padding: 0 5px;
+    border: 1px solid #C8CBCB;
+    border-left: none;
+    font-size: 16px;
+    color: var( --color_buttons_cart_text_input);
+    font-family: "Philosopher";
+    font-weight: bold;
+}
+
+.product-shipping form .btn:hover {
+    background-color: #fff;
+    color: var( --color_buttons_cart_text_input);
 }
 
 .product-shipping-quote {
