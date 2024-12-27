@@ -682,6 +682,7 @@
   line-height: normal;
   font-family: var(--font_family);
   font-size: 18px;
+  flex: 1;
 }
 .menu-toggle-item-has-subcategories.open a {
   display: none;
@@ -715,6 +716,7 @@
 
 .menu-toggle-header-item svg {
   margin-right: 15px;
+  
 }
 
 .toggle-sidebar-close-icon {
@@ -1620,7 +1622,7 @@
 
 .newsletter .newsletter-form input {
   border: 1px solid #C8CBCB;
-  color: #969696;
+  color: #000;
   font-size: 13px;
   font-weight: 400;
   padding: 18px 191px 18px 20px;
@@ -1646,6 +1648,7 @@
   }
   .newsletter .newsletter-form input {
     padding: 18px 130px 18px 20px;
+    color: #000;
   }
 }
 
@@ -1686,6 +1689,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    color: #000;
   }
 
   .newsletter .newsletter-form button {

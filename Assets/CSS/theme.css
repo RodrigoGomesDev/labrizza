@@ -542,17 +542,18 @@ body *::-webkit-scrollbar-thumb {
 .toggle-sidebar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .toggle-sidebar-header a svg, .toggle-sidebar-header a svg * {
-    fill: var(--color_general_text_background);
+    /* fill: var(--color_general_text);
+    color: #000000; */
 }
 
 .toggle-sidebar-header h3 {
     font-size: 18px;
     line-height: 22px;
-    margin: 0;
+    margin: 0 31px;
     color: var(--color_sections_title);
     display: flex;
     align-items: center;
@@ -566,12 +567,12 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .toggle-sidebar-header h3 svg, .toggle-sidebar-header h3 svg * {
-    fill: var(--color_general_text);
+    /* fill: var(--color_general_text); */
 }
 
 .toggle-sidebar-header h3 svg + a {
     width: calc(100% - 40px);
-    color: var(--color_general_text_small);
+    color: var(--color_general_text);
 }
 
 .toggle-sidebar-header h3 a {
