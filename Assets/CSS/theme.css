@@ -203,14 +203,17 @@ body *::-webkit-scrollbar-thumb {
 
 .btn-cart {
     color: var(--color_buttons_cart_text);
-    background-color: var(--color_buttons_cart_background);
-    border: 1px solid var(--color_buttons_cart_border);
+    background-color: var( --color_buttons_cart_text_input);
+    border: 1px solid var( --color_buttons_cart_text_input);
+    font-family: "Philosopher";
+    font-size: 18px;
+    letter-spacing: 3.06px;
 }
 
 .btn-cart:hover {
     color: var(--color_buttons_cart_text_hover);
-    background-color: var(--color_buttons_cart_background_hover);
-    border-color: var(--color_buttons_cart_border_hover);
+    background-color: var( --color_buttons_cart_text_input);
+    border-color: var( --color_buttons_cart_text_input);
 }
 
 .btn-2 {
@@ -3689,6 +3692,7 @@ body *::-webkit-scrollbar-thumb {
 .product-rating span {
     margin-left: 5px;
     font-size: 12px;
+    color: var(--color_slides_dots);
 }
 
 .product-rating:hover span {
@@ -3733,6 +3737,7 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .product-installments {
+    font-size: 13px;
     margin: 0;
     color: var(--color_general_text_small);
     margin-top: 5px;

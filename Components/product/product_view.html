@@ -99,7 +99,7 @@
                     ~}}
                 </div>
             
-                <div class="product-variants">
+               <!--  <div class="product-variants">
                     {{~ has_parallel_options = product.parallel_options && (product.parallel_options | array.size > 0) ~}}
                     {{ if has_parallel_options }}
                         {{ parallel_options product: product }}
@@ -109,7 +109,7 @@
                             {{~ product_customizations customizations: product.customizations ~}}
                         {{~ end ~}}
                     {{ end }}
-                </div>
+                </div>  -->
             
                 {{~ if has_parallel_options ~}}
                     {{~ shipping_on_submit_click = "multiVariantsShippingQuoteSubmit(event, parallelOptionsGetCheckoutInput())" ~}}
@@ -124,9 +124,9 @@
                     {{ product_shipping_quotes on_submit_click: shipping_on_submit_click }}
                 {{~ end ~}}
             
-                {{~ if settings.theme.options.wishlist && product.product_id ~}}
+               <!-- {{~ if settings.theme.options.wishlist && product.product_id ~}}
                     {{~ wishlist_button product_id: product.product_id ~}}
-                {{~ end ~}}
+                {{~ end ~}} -->
             
                 {{~ product_share product: product ~}}
             
