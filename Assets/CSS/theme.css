@@ -3843,6 +3843,23 @@ body *::-webkit-scrollbar-thumb {
     margin-top: 30px;
 }
 
+@media (max-width: 991px) {
+    .product-rating, #product-prices-div .price, .product-shipping {
+        justify-content: center;
+    }
+    .product-installments, .product-shipping label {
+        text-align: center;
+    }
+    .product-shipping {
+        width: 380px;
+        justify-content: center;
+    }
+   .product-section {
+        justify-content: center;
+    }
+}
+
+
 .wishlist-button {
     display: flex;
     align-items: center;
@@ -3868,6 +3885,8 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .product-shipping {
+    display: flex;
+    flex-direction: column;
     background-color: #f5f8f8;
     padding: 30px 50px;
     margin-top: 25px;
@@ -4016,10 +4035,108 @@ body *::-webkit-scrollbar-thumb {
 }
 
 .product-section {
+    display: flex;
+    justify-content: flex-end;
     margin-top: 40px;
 }
 
-.product-datasheet table {
+.product-section .product-section-description {
+    width: 421px;
+    max-width: 421px;
+}
+
+.product-section .product-section-description .product-container-title {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row;
+}
+
+.product-section .product-section-description .product-container-title svg {
+    cursor: pointer;
+}
+
+.product-section .product-section-description h1 {
+    font-size: 15px;
+    font-family: var(--font_family);
+    font-weight: medium;
+    color: #000000;
+}
+
+.product-section .product-container-description {
+    width: 419px;
+    padding: 0 5px;
+}
+
+.product-section .product-container-description p {
+    font-size: 15px;
+    font-family: var(--font_family);
+    font-weight: 200;
+    color: #000000;
+    text-align: left;
+}
+
+.section-review-description {
+    display: flex;
+    flex-direction: row;
+    gap: 108px;
+    margin-top: 100px;
+}
+
+.section-review-description .section-review-description-img {
+    width: 633px;
+    height: 617px;
+    max-width: 633px;
+    max-height: 617px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ .section-review-description .review-description-container-text {
+    max-width: 701px;
+
+ }
+
+ .section-review-description .review-description-container-text h1 {
+    font-size: 30px;
+    font-family: "Philosopher";
+    font-weight: regular;
+    text-align: left;
+    letter-spacing: 5.1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #000000;
+ }
+
+ .section-review-description .review-description-container-text p {
+    text-align: left;
+    font-size: 17px;
+    font-family: var(--font_family);
+    font-weight: 200;
+    margin-bottom: 30px;
+ }
+
+@media (max-width: 991px) {
+    .section-review-description {
+        justify-content: center !important;
+        flex-direction: column;
+        padding: 0 25px;
+        gap: 50px;
+    }
+    .section-review-description .review-description-container-text h1 {
+        font-size: 17px;
+    }
+    .section-review-description .review-description-container-text p {
+        font-size: 15px;
+    }
+    .section-review-description .section-review-description-img {
+        width: 360px;
+        height: 351px;
+    }
+}
+
+/* .product-datasheet table {
     width: 100%;
 }
 
@@ -4037,7 +4154,7 @@ body *::-webkit-scrollbar-thumb {
 
 .product-datasheet table tr:nth-child(2n) td {
     background-color: var(--color_general_text_background);
-}
+} */
 
 .product-reviews-content {
     display: flex;
