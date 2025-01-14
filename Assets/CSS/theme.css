@@ -1138,6 +1138,19 @@ body *::-webkit-scrollbar-thumb {
     }
 }
 
+.container-product-category-carrossel {
+    width: 120px;
+    background-color: #7B0062;
+    padding: 7px 10px;
+    margin: auto;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: var(--font_family);
+    font-size: 13px;
+    font-weight: lighter;
+    color: #fff;
+}
+
 .spot .product-info {
     padding: 10px;
 }
@@ -1181,7 +1194,7 @@ body *::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
-.spot-carrossel-product-button::before {
+.spot .spot-carrossel-product-button::before {
     content: "Adicionar ao carrinho"; 
   }
   
@@ -1189,7 +1202,7 @@ body *::-webkit-scrollbar-thumb {
     .spot .spot-carrossel-product-button {
         font-size: 10px;
     }
-    .spot-carrossel-product-button::before {
+    .spot .spot-carrossel-product-button::before {
       content: "Adicionar";
     }
   }
