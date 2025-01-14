@@ -785,15 +785,36 @@
         "availableInAllPages": true
     },
     {
-        "name": "product_information",
-        "path": "product/product_information.html",
+        "name": "product_information_description",
+        "path": "product/product_information_description.html",
         "params": [
             {
-                "name": "informations",
+                "name": "title",
+                "required": true
+            },
+            {
+                "name": "description",
                 "required": true
             }
         ],
-        "availableInAllPages": true
+        "availableInAllPages": true,
+        "availableInAllComponents": false   
+    },
+    {
+        "name": "product_information_mode_use",
+        "path": "product/product_information_mode_use.html",
+        "params": [
+            {
+                "name": "title",
+                "required": true
+            },
+            {
+                "name": "description",
+                "required": true
+            }
+        ],
+        "availableInAllPages": true,
+        "availableInAllComponents": false   
     },
     {
         "name": "product_buy_button",
@@ -963,8 +984,8 @@
         "availableInAllPages": true
     },
     {
-        "name": "product_reviews",
-        "path": "product/review/product_reviews.html",
+        "name": "product_review_description_inverse",
+        "path": "product/product_review_description_inverse.html",
         "params": [
             {
                 "name": "reviews",
@@ -1113,8 +1134,8 @@
         "availableInAllPages": true
     },
     {
-        "name": "product_datasheet",
-        "path": "product/product_datasheet.html",
+        "name": "product_review_description",
+        "path": "product/product_review_description.html",
         "params": [
             {
                 "name": "product",

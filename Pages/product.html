@@ -31,9 +31,8 @@
                         </div>
                     </div>
                     {{ buy_together product: product }}
-                    {{ product_information informations: product.informations }}
-                    {{ product_datasheet product: product }}
-                    {{ product_reviews reviews: product.reviews product_name: product.product_name }}
+                    {{ product_review_description product: product }}
+                    {{ product_review_description_inverse reviews: product.reviews product_name: product.product_name }}
                 </div>
             </div>
             

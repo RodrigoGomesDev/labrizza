@@ -2,7 +2,17 @@
     
     {{~ index = 1 ~}}
 
-    <div class="product-images swiper swiper-container">
+        <div class="container-grid">
+            {{ for image in images }}
+                <div class="image-grid" data-index="{{ index }}">
+                        <img src="{{ image.url }}" alt="Produto imagem - {{ math.uuid }}">
+                </div>
+                {{~ index = index + 1 ~}}
+            {{ end }}
+        </div>
+
+        
+        <div class="product-images swiper swiper-container">
         <div class="swiper-wrapper">
             {{ for image in images }}
                 <div class="image swiper-slide" data-index="{{ index }}">
@@ -14,5 +24,4 @@
             {{ end }}
         </div>
     </div>
-
 </div>
