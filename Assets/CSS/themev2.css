@@ -245,45 +245,15 @@
   justify-content: center;
   gap: 1rem;
   width: auto;
+  margin: 19px 20px;
 }
 
-.account a {
-  color: var(--color_header_menu);
-}
-
-.account svg {
-  width: 24px;
-}
-
-.account > div {
-  width: calc(100% - 40px);
-  line-height: 15px;
-  margin-left: 16px;
-}
-
-.account > div:not(.hidden) {
-  display: block;
-}
-
-.account span {
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.account > div > span {
-  white-space: nowrap;
-}
-
-.account .login-links {
-  display: flex;
-  align-items: flex-start;
-  font-size: 13px;
-}
-
-.account .login-links span {
-  margin: 0 3px;
-  font-size: 13px;
-  line-height: 15px;
+.account-sidebar h1 {
+  font-family: var(--font_family);
+  font-weight: medium;
+  font-size: 18px;
+  text-transform: uppercase;
+  flex: 1;
 }
 
 .nav .container {
