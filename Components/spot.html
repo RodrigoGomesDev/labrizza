@@ -17,7 +17,7 @@
         {{ spot_image product: product priority: img_priority lazy: img_lazy_load }}
     
         <div class="container-product-category-carrossel">
-            <h1>Reconstrução</h1>
+            Reconstrução
         </div>
 
         <div class="product-info">
@@ -26,7 +26,16 @@
                 {{ product.product_name }}
             </div>
             
-            {{~ if settings.theme.options.product_reviews && settings.theme.options.spot_reviews ~}}
+            <div class="product-volume">
+                OX 20 Volumes – 900ml
+            </div>
+
+            <div class="product-description-carrossel">
+                Lorem ipsum dolor sit amet, consetetur sLorem ipsum dolor sit amet, consetetur
+            </div>
+
+
+          <!--  {{~ if settings.theme.options.product_reviews && settings.theme.options.spot_reviews ~}}
                 <span class="product-rating">
                     {{~ for i in 1..5~}}
                         {{~ if i <= product.average_rating }}
@@ -36,7 +45,7 @@
                         {{~ end ~}}
                     {{~ end ~}}
                 </span>
-            {{~ end ~}}
+            {{~ end ~}} -->
     
             <div class="product-price">
                 {{~ if product.available ~}}

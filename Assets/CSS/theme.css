@@ -1013,6 +1013,22 @@ body *::-webkit-scrollbar-thumb {
     text-decoration: underline;
 }
 
+.spot .product-volume {
+    color: var(--color_products_name);
+    font-family: Philosopher;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 2.89px;
+    margin: 15px 0;
+}
+
+.spot .product-description-carrossel {
+    font-family: var(--font_family);
+    color: var(--color_products_name);
+    font-size: 13px;
+    font-weight: lighter;
+}
+
 .spot .image {
     position: relative;
     overflow: hidden;
@@ -1153,10 +1169,15 @@ body *::-webkit-scrollbar-thumb {
 
 .spot .product-info {
     padding: 10px;
+    margin-top: 20px;
 }
 
 .spot .product-info .product-name {
     color: var(--color_products_name);
+    font-family: var(--font_family);
+    font-weight: lighter;
+    text-transform: uppercase;
+    opacity: 1;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
