@@ -76,7 +76,9 @@
                         </span>
                     </a>
                 {{~ end ~}}
-            
+                
+                {{ product_category categoryName: "RECONSTRUÇÃO" productType: "Cabelos lisos" iconType: "img" }}
+
                 {{~
                     promotionsTypes = product.promotions | group.by @(do; ret $0.disclosure_type;end)
                     promotionsPagProduto = promotionsTypes | group.get "Página produto"

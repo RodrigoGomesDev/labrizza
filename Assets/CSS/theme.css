@@ -3859,6 +3859,141 @@ body *::-webkit-scrollbar-thumb {
     }
 }
 
+.container-category-name {
+    width: 104px;
+    padding: 6px 10px;
+    background-color: #7B0062;
+}
+
+.container-category-name h1 {
+    font-size: 11px;
+    font-family: var(--font_family);
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.container-product-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.container-product-type h2 {
+    font-family: var(--font_family);
+    font-weight: bold;
+    font-size: 13px;
+    color: #000000;
+}
+
+.container-launch-highlight {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .container-category-name {
+        display: none;
+    }
+    .container-product-type {
+        justify-content: center;
+    }
+    .container-launch-highlight {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-launch-highlight .container-highlight,  .container-launch-highlight .container-launch {
+        background-color: #000000;
+        padding: 7px;
+        color: #fff;
+        font-family: var(--font_family);
+        font-weight: lighter;
+        margin: 16px 5px;
+    }
+    
+}
+
+.container-shipping-salesman-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.container-shipping-salesman-title h1 {
+    font-size: 15px;
+    font-family: var(--font_family);
+    font-weight: medium;
+    color: #000000;
+    padding: 0 10px;
+}
+
+.container-shipping-salesman-subtitle p {
+    font-size: 13px;
+    font-family: var(--font_family);
+    font-weight: 300;
+    color: #000000;
+    padding: 0 28px;
+    margin: 0;
+}
+.container-cep-existing-seller {
+    height: auto;
+    max-height: 451px;
+    overflow-y: scroll;
+}
+
+.container-existing-seller {
+    background-color: #fff;
+    padding: 15px 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    background-color: #F5F8F8;
+    width: 123px;
+}
+
+.container-button-quantity {
+display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 16px;
+}
+
+.container-button-quantity  .quantity-control button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: var(--color_buttons_cart_text_input);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.container-button-quantity .quantity-control input[type="number"] {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+  }
+
+.container-button-quantity .quantity-control input[type="number"]::-webkit-inner-spin-button,
+.container-button-quantity .quantity-control input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container-button-quantity .quantity-control input[type="number"] {
+    -moz-appearance: textfield;
+  }
 
 .wishlist-button {
     display: flex;
@@ -3868,6 +4003,15 @@ body *::-webkit-scrollbar-thumb {
     width: 100%;
     margin-top: 25px;
     font-size: 14px;
+}
+
+.container-button-quantity button {
+    background-color: var(--color_buttons_cart_text_input);
+    font-family: Philosopher;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    padding: 0 33px;
 }
 
 .wishlist-button:hover {
@@ -3888,7 +4032,7 @@ body *::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     background-color: #f5f8f8;
-    padding: 30px 50px;
+    padding: 30px 20px;
     margin-top: 25px;
 }
 
@@ -4183,8 +4327,8 @@ body *::-webkit-scrollbar-thumb {
         font-size: 15px;
     }
     .section-review-description .section-review-description-img, .section-review-description-inverse .section-review-description-img-inverse {
-        width: 340px;
-        height: 351px;
+        width: 100%;
+        height: 351px   ;
     }
     .section-review-description-inverse {
         justify-content: center !important;

@@ -736,6 +736,33 @@
         "availableInAllPages": true
     },
     {
+        "name": "cep_existing_seller",
+        "path": "product/cep_existing_seller.html",
+        "params": [],
+        "availableInAllPages": true,
+        "availableInAllComponents": false
+    },
+    {
+        "name": "product_category",
+        "path": "product/product_category.html",
+        "params": [
+            {
+                "name": "categoryName",
+                "required": true
+            },
+            {
+                "name": "productType",
+                "required": true
+            },
+            {
+                "name": "iconType",
+                "required": true
+            }
+        ],
+        "availableInAllPages": true,
+        "availableInAllComponents": false
+    },
+    {
         "name": "product_brand",
         "path": "product/product_brand.html",
         "params": [
