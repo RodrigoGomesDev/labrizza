@@ -32,20 +32,12 @@
                     </div>
                     {{ buy_together product: product }}
                     {{ product_review_description product: product }}
-                    {{ product_review_description_inverse reviews: product.reviews product_name: product.product_name }}
+                    {{ product_review_description_inverse reviews: "" product_name: "" }}
                 </div>
             </div>
             
-           <!-- {{~ if data.product_recommendations.size > 0 ~}}
-                <div class="product-recommendations spot-carousel">
-                    {{ spot_carousel products: data.product_recommendations class:"recommendations" title:"Produtos relacionados" }}
-                </div>
-            {{~ end ~}} -->
-            
         </div>
         
-        {{ data_layer_product_view product: page_data }}
-        {{ asset type: "js" paths: ["product_review", "buy_together", "shipping_quotes"] options:"async"}} 
         {{ footer is_preview: is_preview store: store common: common page_data: page_data asset_js: ["zoom", "jquery.mask.min"] }}
         
     </body>
